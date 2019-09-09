@@ -9,6 +9,7 @@
 
 // Colores
 
+$texto       : #808080;
 $primary     : #FA8072; // rgb(250,128,114)
 $darkprimary : #E9967A; // rgb(233,150,122)
 $lightprimary: #FFA07A; // rgb(255,160,122)
@@ -51,23 +52,17 @@ $laptop: 980px;
 //     GENERAL     //
 // ─────────────── //
 
-h4.encabezado,
-h4.encabezado * {
-	color: darksalmon;
+.encabezado h2 {
 	font-size: 50px;
 	font-weight: normal;
 	font-family: 'Berkshire Swash', sans-serif;
-    background: linear-gradient(to right, darksalmon 75%, lightsalmon);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
+	text-transform: none !important;
     margin: 0;
 }
 
 h5,
 h5 * {
-    color: darksalmon;
+    color: $darkprimary;
 	font-size: 30px;
 	font-weight: 400;
 	font-family: 'Berkshire Swash', sans-serif;
@@ -77,8 +72,10 @@ h5 * {
     margin: 0;
 }
 
+// Mobile First
+
 @media only screen and (min-width: $tablet) {
-	h4.encabezado {
+	.encabezado h2 {
 		font-size: 70px;
 	}
 }
@@ -243,7 +240,7 @@ h5 * {
 
 		.av-seperator-icon {
 			font-size: 20px;
-			border: 1px solid darksalmon;
+			border: 1px solid $darkprimary;
 			border-radius: 50%;
 			line-height: 45px;
 			width: 50px;
@@ -283,14 +280,14 @@ h5 * {
 			align-items: flex-end;
 			justify-content: center;
 			background: white;
-			border: 1px solid darksalmon;
+			border: 1px solid $darkprimary;
 			border-radius: 0;
 			box-shadow: none;
 			padding: 0 35px;
 			height: 125px;
 
 			.iconbox_content_title {
-				color: darksalmon;
+				color: $darkprimary;
 				font-size: 18px;
 				font-weight: 400;
 				font-family: 'Berkshire Swash', sans-serif;
@@ -301,10 +298,10 @@ h5 * {
 			}
 
 			.iconbox_icon {
-				color: darksalmon;
+				color: $darkprimary;
 				font-size: 30px;
 				background-color: white;
-				border: 1px solid darksalmon;
+				border: 1px solid $darkprimary;
 				line-height: 47px;
 				top: -39px;
 				margin: 0;
@@ -661,10 +658,10 @@ h5 * {
 }
 
 #entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .entry-title {
-	color: darksalmon;
+	color: $darkprimary;
 	font-size: 25px;
 	font-family: 'Berkshire Swash' !important;
-    background: linear-gradient(to right, darksalmon 75%, lightsalmon);
+    background: linear-gradient(to right, $darkprimary 75%, $lightprimary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -685,7 +682,7 @@ h5 * {
 #entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link {
 	font-size: 11px;
     text-transform: uppercase;
-    border: 1px solid darksalmon;
+    border: 1px solid $darkprimary;
     letter-spacing: 1px;
     padding: 5px 0;
     margin: 20px auto 0;
@@ -695,11 +692,11 @@ h5 * {
 }
 
 #entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover {
-	background: darksalmon;
+	background: $darkprimary;
 }
 
 #entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a {
-	color: darksalmon;
+	color: $darkprimary;
 	text-decoration: none;
 	transition: .5s;
 }
@@ -718,132 +715,165 @@ h5 * {
 
 #contacto {
 	
-	.flex_column.av_three_fifth {
+	.recuadro {
 		background: white;
 		border: 1px solid rgba(0,0,0,.1);
-		padding: 50px;
+		padding: 20px 25px;
 	}
 
 	// Formulario
 
-	#contacto form,
-	#contacto form fieldset {
+	.formulario {
 		margin: 0;
+
+		fieldset {
+			margin: 0;
+		}
+
+		// Campos
+
+		.text_input,
+		.text_area {
+			color: $texto;
+			font-family: 'Lato', sans-serif;
+			background: white !important;
+			border: none;
+			border-bottom: 1px solid rgb(235,235,235);
+			border-radius: 0 !important;
+			box-shadow: none;
+			resize: none;
+			transition: .5s;
+
+			&:focus {
+				border: none;
+				border-bottom: 1px solid $darkprimary;
+				border-radius: 0;
+				box-shadow: none;
+			}
+
+			// Placeholder
+
+			&::placeholder {
+				transition: .5s;
+			}
+			
+			&:focus::placeholder {
+				color: white;
+			}
+		}
+
+		.text_area {
+			margin-bottom: 25px;
+			height: 150px;
+		}
+
+		// Botón
+
+		.button {
+			color: $darkprimary;
+			text-transform: uppercase;
+			background: white;
+			border: 1px solid $darkprimary;
+			border-radius: 0;
+			letter-spacing: 1px;
+			margin: 42px 0 0;
+			width: 100%;
+			transition: .5s;
+			
+			&:hover {
+				color: white;
+				background: $darkprimary;
+			}
+		}
+
+		// Captcha
+
+		.hidden + p > label {
+			display: none;
+		}
+
+		.value_verifier_label {
+			color: $texto;
+			font-size: 15px;
+			bottom: 12px;
+		}
+
+		.captcha {
+			color: $texto !important;
+			padding-left: 70px !important;
+		}
+
+		// Validaciones
+
+		.valid .text_area,
+		.valid .text_input {
+			border: none !important;
+			border-bottom: 1px solid rgb(235,235,235) !important;
+		}
+		
+		.error .text_area,
+		.error .text_input {
+			border: none !important;
+			border-bottom: 1px solid tomato !important;
+		}
+	}
+
+	// Política de privacidad
+
+	.politica-privacidad {
+		color: $texto;
+
+		.texto,
+		.check {
+			display: inline;
+			font-size: 10px;
+			margin: 0;
+		}
+
+		.check {
+			margin-right: 2px;
+			position: relative;
+			top: 3px;
+			cursor: pointer;
+		}
+
+		.enlace {
+			text-decoration: none;
+			transition: .5s;
+
+			&:hover {
+				opacity: .75;
+			}
+		}
 	}
 }
 
-/* Campos */
-
-#contacto input:not([type="submit"]),
-#contacto textarea {
-	background: white !important;
-	border: none;
-	border-bottom: 1px solid rgba(255,255,255,.1);
-	border-radius: 0;
-	box-shadow: none;
-	resize: none;
-	transition: .5s;
-}
-
-#contacto input:not([type="submit"]):focus,
-#contacto textarea:focus {
-	border: none;
-	border-bottom: 1px solid darksalmon;
-	border-radius: 0;
-	box-shadow: none;
-}
-
-/* Captcha */
-
-#contacto .hidden + p > label {
-	display: none;
-}
-
-/* Botón */
-
-#contacto input[type="submit"] {
-	color: darksalmon;
-    text-transform: uppercase;
-	background: white;
-	border: 1px solid darksalmon;
-    border-radius: 0;
-    letter-spacing: 1px;
-    width: 100%;
-    transition: .5s;
-}
-
-#contacto input[type="submit"]:hover {
-	color: white;
-	background: darksalmon;
-}
-
-#contacto form fieldset p:last-child {
-	margin: 42px 0 0;
-}
-
-/* LOPD */
-
-#contacto .lopd {
-	color: #808080;
-}
-
-#contacto .lopd p,
-#contacto .lopd input {
-	display: inline-block;
-}
-
-#contacto .lopd p {
-	margin-bottom: 0;
-}
-
-#contacto .lopd p a {
-	text-decoration: none;
-	transition: .5s;
-}
-
-#contacto .lopd p a:hover {
-	opacity: .75;
-}
-
-#contacto .lopd input {
-	margin-right: 4px;
-	position: relative;
-    top: 1px;
-	cursor: pointer;
-}
-
-/* Validación */
-
-#top #wrap_all .valid .text_area,
-#top #wrap_all .valid .text_input {
-	border: none;
-	border-bottom: 1px solid lightgreen;
-}
-
-#top #wrap_all .error .text_area,
-#top #wrap_all .error .text_input {
-	border: none;
-	border-bottom: 1px solid tomato;
-}
-
-/* Placeholder */
-
-#contacto input:not([type="submit"])::placeholder,
-#contacto textarea::placeholder {
-	transition: .5s;
-}
-
-#contacto input:not([type="submit"]):focus::placeholder,
-#contacto textarea:focus::placeholder {
-	color: white;
-}
-
-/* ───────────────────────── */
-/*     DATOS DE CONTACTO     */
-/* ───────────────────────── */
+// Datos de contacto
 
 #datos-contacto .content {
 	padding: 50px 0;
+	
+	p {
+		font-size: 15px;
+		line-height: 30px;
+	}
+}
+
+// Mobile First
+
+@media only screen and (min-width: $mobile) {
+	
+	#contacto .recuadro {
+		padding: 50px;
+	}
+
+	#datos-contacto .content {
+		
+		p {
+			font-size: 25px;
+			line-height: 50px;
+		}
+	}
 }
 
 // ────────────── //
@@ -958,15 +988,10 @@ h5 * {
 /* Encabezado */
 
 #modales h5 {
-	color: darksalmon;
+	color: $darkprimary;
 	font-size: 30px;
 	font-weight: normal;
 	font-family: 'Berkshire Swash', sans-serif;
-    background: linear-gradient(to right, darksalmon 75%, lightsalmon);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
     border-bottom: 1px solid rgb(233,150,122,.25);
     padding: 0 0 15px;
     margin: 0 0 20px;
@@ -997,7 +1022,7 @@ h5 * {
 
 #modales .cerrar-modal {
 	display: block;
-	color: darksalmon;
+	color: $darkprimary;
     font-size: 50px;
     position: absolute;
     top: 25px;
@@ -1078,14 +1103,9 @@ h5 * {
 .tag .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .entry-title,
 .blog .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .entry-title,
 .category .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .entry-title {
-	color: darksalmon;
+	color: $darkprimary;
 	font-size: 25px;
 	font-family: 'Berkshire Swash' !important;
-    background: linear-gradient(to right, darksalmon 75%, lightsalmon);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
 	margin-bottom: 10px;
 }
 
@@ -1108,7 +1128,7 @@ h5 * {
 .category .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link {
 	font-size: 11px;
     text-transform: uppercase;
-    border: 1px solid darksalmon;
+    border: 1px solid $darkprimary;
     letter-spacing: 1px;
     padding: 5px 0;
     margin: 20px auto 0;
@@ -1120,13 +1140,13 @@ h5 * {
 .tag .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover,
 .blog .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover,
 .category .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover {
-	background: darksalmon;
+	background: $darkprimary;
 }
 
 .tag .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a,
 .blog .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a,
 .category .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a {
-	color: darksalmon;
+	color: $darkprimary;
 	text-decoration: none;
 	transition: .5s;
 }
@@ -1157,12 +1177,12 @@ h5 * {
 
 .single-post .post-title,
 .single-post .post-title a {
-	color: darksalmon !important;
+	color: $darkprimary !important;
 	font-size: 50px;
 	font-weight: 400;
 	font-family: 'Berkshire Swash', sans-serif !important;
 	text-transform: none;
-	background: linear-gradient(to right, darksalmon 75%, lightsalmon);
+	background: linear-gradient(to right, $darkprimary 75%, $lightprimary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1190,7 +1210,7 @@ h5 * {
 /* Encabezado */
 
 .sidebar .widgettitle {
-    color: darksalmon;
+    color: $darkprimary;
     font-size: 20px;
     font-weight: normal;
     font-family: 'Berkshire Swash', sans-serif;
@@ -1214,7 +1234,7 @@ h5 * {
 /* Widget - Últimas entradas */
 
 .sidebar .newsbox .news-headline {
-	color: darksalmon;
+	color: $darkprimary;
 }
 
 .sidebar .newsbox .news-time {
@@ -1287,7 +1307,7 @@ h5 * {
 }
 
 #legal table th {
-	color: darksalmon !important;
+	color: $darkprimary !important;
     font-size: 20px;
     font-weight: normal;
     text-transform: none;
@@ -1313,7 +1333,7 @@ h5 * {
 	}
 	.responsive .avia_responsive_table .avia-data-table td:before {
 		display: block;
-	    color: darksalmon;
+	    color: $darkprimary;
 	    font-size: 20px !important;
 	    font-style: normal !important;
 	    border-bottom: 1px solid rgba(233,150,122,.5);
@@ -1336,7 +1356,7 @@ h5 * {
 }
 
 #cookie-law-info-bar a {
-	color: darksalmon;
+	color: $darkprimary;
 	font-size: 15px;
 }
 

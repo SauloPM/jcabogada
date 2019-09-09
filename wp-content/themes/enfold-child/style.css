@@ -29,23 +29,17 @@
   background: rgba(0, 0, 0, 0.1);
 }
 
-h4.encabezado,
-h4.encabezado * {
-  color: darksalmon;
+.encabezado h2 {
   font-size: 50px;
   font-weight: normal;
   font-family: "Berkshire Swash", sans-serif;
-  background: linear-gradient(to right, darksalmon 75%, lightsalmon);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
+  text-transform: none !important;
   margin: 0;
 }
 
 h5,
 h5 * {
-  color: darksalmon;
+  color: #E9967A;
   font-size: 30px;
   font-weight: 400;
   font-family: "Berkshire Swash", sans-serif;
@@ -56,7 +50,7 @@ h5 * {
 }
 
 @media only screen and (min-width: 768px) {
-  h4.encabezado {
+  .encabezado h2 {
     font-size: 70px;
   }
 }
@@ -155,7 +149,7 @@ h5 * {
 }
 #introduccion .hr .av-seperator-icon {
   font-size: 20px;
-  border: 1px solid darksalmon;
+  border: 1px solid #E9967A;
   border-radius: 50%;
   line-height: 45px;
   width: 50px;
@@ -186,14 +180,14 @@ h5 * {
   align-items: flex-end;
   justify-content: center;
   background: white;
-  border: 1px solid darksalmon;
+  border: 1px solid #E9967A;
   border-radius: 0;
   box-shadow: none;
   padding: 0 35px;
   height: 125px;
 }
 #introduccion .iconbox .iconbox_content .iconbox_content_title {
-  color: darksalmon;
+  color: #E9967A;
   font-size: 18px;
   font-weight: 400;
   font-family: "Berkshire Swash", sans-serif;
@@ -203,10 +197,10 @@ h5 * {
   margin: 0 0 15px;
 }
 #introduccion .iconbox .iconbox_content .iconbox_icon {
-  color: darksalmon;
+  color: #E9967A;
   font-size: 30px;
   background-color: white;
-  border: 1px solid darksalmon;
+  border: 1px solid #E9967A;
   line-height: 47px;
   top: -39px;
   margin: 0;
@@ -517,10 +511,10 @@ h5 * {
 }
 
 #entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .entry-title {
-  color: darksalmon;
+  color: #E9967A;
   font-size: 25px;
   font-family: "Berkshire Swash" !important;
-  background: linear-gradient(to right, darksalmon 75%, lightsalmon);
+  background: linear-gradient(to right, #E9967A 75%, #FFA07A);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -540,7 +534,7 @@ h5 * {
 #entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link {
   font-size: 11px;
   text-transform: uppercase;
-  border: 1px solid darksalmon;
+  border: 1px solid #E9967A;
   letter-spacing: 1px;
   padding: 5px 0;
   margin: 20px auto 0;
@@ -550,11 +544,11 @@ h5 * {
 }
 
 #entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover {
-  background: darksalmon;
+  background: #E9967A;
 }
 
 #entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a {
-  color: darksalmon;
+  color: #E9967A;
   text-decoration: none;
   transition: 0.5s;
 }
@@ -567,123 +561,126 @@ h5 * {
   display: none;
 }
 
-#contacto .flex_column.av_three_fifth {
+#contacto .recuadro {
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 50px;
+  padding: 20px 25px;
 }
-#contacto #contacto form,
-#contacto #contacto form fieldset {
+#contacto .formulario {
   margin: 0;
 }
-
-/* Campos */
-#contacto input:not([type=submit]),
-#contacto textarea {
+#contacto .formulario fieldset {
+  margin: 0;
+}
+#contacto .formulario .text_input,
+#contacto .formulario .text_area {
+  color: #808080;
+  font-family: "Lato", sans-serif;
   background: white !important;
   border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 0;
+  border-bottom: 1px solid #ebebeb;
+  border-radius: 0 !important;
   box-shadow: none;
   resize: none;
   transition: 0.5s;
 }
-
-#contacto input:not([type=submit]):focus,
-#contacto textarea:focus {
+#contacto .formulario .text_input:focus,
+#contacto .formulario .text_area:focus {
   border: none;
-  border-bottom: 1px solid darksalmon;
+  border-bottom: 1px solid #E9967A;
   border-radius: 0;
   box-shadow: none;
 }
-
-/* Captcha */
-#contacto .hidden + p > label {
-  display: none;
+#contacto .formulario .text_input::placeholder,
+#contacto .formulario .text_area::placeholder {
+  transition: 0.5s;
 }
-
-/* Botón */
-#contacto input[type=submit] {
-  color: darksalmon;
+#contacto .formulario .text_input:focus::placeholder,
+#contacto .formulario .text_area:focus::placeholder {
+  color: white;
+}
+#contacto .formulario .text_area {
+  margin-bottom: 25px;
+  height: 150px;
+}
+#contacto .formulario .button {
+  color: #E9967A;
   text-transform: uppercase;
   background: white;
-  border: 1px solid darksalmon;
+  border: 1px solid #E9967A;
   border-radius: 0;
   letter-spacing: 1px;
+  margin: 42px 0 0;
   width: 100%;
   transition: 0.5s;
 }
-
-#contacto input[type=submit]:hover {
+#contacto .formulario .button:hover {
   color: white;
-  background: darksalmon;
+  background: #E9967A;
 }
-
-#contacto form fieldset p:last-child {
-  margin: 42px 0 0;
+#contacto .formulario .hidden + p > label {
+  display: none;
 }
-
-/* LOPD */
-#contacto .lopd {
+#contacto .formulario .value_verifier_label {
+  color: #808080;
+  font-size: 15px;
+  bottom: 12px;
+}
+#contacto .formulario .captcha {
+  color: #808080 !important;
+  padding-left: 70px !important;
+}
+#contacto .formulario .valid .text_area,
+#contacto .formulario .valid .text_input {
+  border: none !important;
+  border-bottom: 1px solid #ebebeb !important;
+}
+#contacto .formulario .error .text_area,
+#contacto .formulario .error .text_input {
+  border: none !important;
+  border-bottom: 1px solid tomato !important;
+}
+#contacto .politica-privacidad {
   color: #808080;
 }
-
-#contacto .lopd p,
-#contacto .lopd input {
-  display: inline-block;
+#contacto .politica-privacidad .texto,
+#contacto .politica-privacidad .check {
+  display: inline;
+  font-size: 10px;
+  margin: 0;
 }
-
-#contacto .lopd p {
-  margin-bottom: 0;
+#contacto .politica-privacidad .check {
+  margin-right: 2px;
+  position: relative;
+  top: 3px;
+  cursor: pointer;
 }
-
-#contacto .lopd p a {
+#contacto .politica-privacidad .enlace {
   text-decoration: none;
   transition: 0.5s;
 }
-
-#contacto .lopd p a:hover {
+#contacto .politica-privacidad .enlace:hover {
   opacity: 0.75;
 }
 
-#contacto .lopd input {
-  margin-right: 4px;
-  position: relative;
-  top: 1px;
-  cursor: pointer;
-}
-
-/* Validación */
-#top #wrap_all .valid .text_area,
-#top #wrap_all .valid .text_input {
-  border: none;
-  border-bottom: 1px solid lightgreen;
-}
-
-#top #wrap_all .error .text_area,
-#top #wrap_all .error .text_input {
-  border: none;
-  border-bottom: 1px solid tomato;
-}
-
-/* Placeholder */
-#contacto input:not([type=submit])::placeholder,
-#contacto textarea::placeholder {
-  transition: 0.5s;
-}
-
-#contacto input:not([type=submit]):focus::placeholder,
-#contacto textarea:focus::placeholder {
-  color: white;
-}
-
-/* ───────────────────────── */
-/*     DATOS DE CONTACTO     */
-/* ───────────────────────── */
 #datos-contacto .content {
   padding: 50px 0;
 }
+#datos-contacto .content p {
+  font-size: 15px;
+  line-height: 30px;
+}
 
+@media only screen and (min-width: 480px) {
+  #contacto .recuadro {
+    padding: 50px;
+  }
+
+  #datos-contacto .content p {
+    font-size: 25px;
+    line-height: 50px;
+  }
+}
 #socket .container {
   padding: 0 !important;
   height: 150px;
@@ -767,15 +764,10 @@ h5 * {
 
 /* Encabezado */
 #modales h5 {
-  color: darksalmon;
+  color: #E9967A;
   font-size: 30px;
   font-weight: normal;
   font-family: "Berkshire Swash", sans-serif;
-  background: linear-gradient(to right, darksalmon 75%, lightsalmon);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
   border-bottom: 1px solid rgba(233, 150, 122, 0.25);
   padding: 0 0 15px;
   margin: 0 0 20px;
@@ -805,7 +797,7 @@ h5 * {
 
 #modales .cerrar-modal {
   display: block;
-  color: darksalmon;
+  color: #E9967A;
   font-size: 50px;
   position: absolute;
   top: 25px;
@@ -880,14 +872,9 @@ h5 * {
 .tag .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .entry-title,
 .blog .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .entry-title,
 .category .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .entry-title {
-  color: darksalmon;
+  color: #E9967A;
   font-size: 25px;
   font-family: "Berkshire Swash" !important;
-  background: linear-gradient(to right, darksalmon 75%, lightsalmon);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
   margin-bottom: 10px;
 }
 
@@ -908,7 +895,7 @@ h5 * {
 .category .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link {
   font-size: 11px;
   text-transform: uppercase;
-  border: 1px solid darksalmon;
+  border: 1px solid #E9967A;
   letter-spacing: 1px;
   padding: 5px 0;
   margin: 20px auto 0;
@@ -920,13 +907,13 @@ h5 * {
 .tag .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover,
 .blog .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover,
 .category .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover {
-  background: darksalmon;
+  background: #E9967A;
 }
 
 .tag .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a,
 .blog .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a,
 .category .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a {
-  color: darksalmon;
+  color: #E9967A;
   text-decoration: none;
   transition: 0.5s;
 }
@@ -954,12 +941,12 @@ h5 * {
 /* Título */
 .single-post .post-title,
 .single-post .post-title a {
-  color: darksalmon !important;
+  color: #E9967A !important;
   font-size: 50px;
   font-weight: 400;
   font-family: "Berkshire Swash", sans-serif !important;
   text-transform: none;
-  background: linear-gradient(to right, darksalmon 75%, lightsalmon);
+  background: linear-gradient(to right, #E9967A 75%, #FFA07A);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -983,7 +970,7 @@ h5 * {
 /* ─────────────── */
 /* Encabezado */
 .sidebar .widgettitle {
-  color: darksalmon;
+  color: #E9967A;
   font-size: 20px;
   font-weight: normal;
   font-family: "Berkshire Swash", sans-serif;
@@ -1005,7 +992,7 @@ h5 * {
 
 /* Widget - Últimas entradas */
 .sidebar .newsbox .news-headline {
-  color: darksalmon;
+  color: #E9967A;
 }
 
 .sidebar .newsbox .news-time {
@@ -1073,7 +1060,7 @@ h5 * {
 }
 
 #legal table th {
-  color: darksalmon !important;
+  color: #E9967A !important;
   font-size: 20px;
   font-weight: normal;
   text-transform: none;
@@ -1101,7 +1088,7 @@ h5 * {
 
   .responsive .avia_responsive_table .avia-data-table td:before {
     display: block;
-    color: darksalmon;
+    color: #E9967A;
     font-size: 20px !important;
     font-style: normal !important;
     border-bottom: 1px solid rgba(233, 150, 122, 0.5);
@@ -1122,7 +1109,7 @@ h5 * {
 }
 
 #cookie-law-info-bar a {
-  color: darksalmon;
+  color: #E9967A;
   font-size: 15px;
 }
 
