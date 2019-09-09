@@ -55,7 +55,7 @@ h5 * {
   margin: 0;
 }
 
-@media only screen and (min-width: 678px) {
+@media only screen and (min-width: 768px) {
   h4.encabezado {
     font-size: 70px;
   }
@@ -73,7 +73,7 @@ h5 * {
   width: 300px;
 }
 
-@media only screen and (min-width: 678px) {
+@media only screen and (min-width: 768px) {
   #areas .hr-default,
 #contacto .hr-default,
 #entradas .hr-default {
@@ -100,22 +100,25 @@ h5 * {
 }
 
 /* Título */
-#portada h1,
-#portada h1 * {
-  color: #323232 !important;
-  font-size: 25px !important;
-  font-weight: 300;
-  font-family: "Montserrat", sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 30px;
-  margin: -30px 0 0;
-  transform: rotateX(18deg);
+#portada .logo-grande {
+  display: none;
+}
+#portada .logo-chico {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
 }
 
-@media only screen and (min-width: 678px) {
-  #portada h1,
-#portada h1 * {
-    font-size: 100px;
+@media only screen and (min-width: 768px) {
+  #portada .container {
+    height: 600px !important;
+  }
+  #portada .logo-grande {
+    display: block;
+  }
+  #portada .logo-chico {
+    display: none;
   }
 }
 #introduccion {
@@ -193,7 +196,7 @@ h5 * {
     width: 360px;
   }
 }
-@media only screen and (min-width: 678px) {
+@media only screen and (min-width: 768px) {
   #introduccion .hr .hr-inner {
     width: 250px;
   }
@@ -203,6 +206,29 @@ h5 * {
     width: 350px;
   }
 }
+.callout .texto {
+  padding: 50px 0;
+}
+.callout .texto blockquote {
+  padding-left: 45px;
+  padding-bottom: 10px;
+  margin: 0;
+}
+.callout .texto blockquote p {
+  color: white;
+  font-size: 40px;
+  text-align: left;
+  font-weight: normal;
+  font-family: "Berkshire Swash", sans-serif;
+  line-height: 65px;
+  margin: 0;
+}
+.callout .texto blockquote p u {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  padding-bottom: 5px;
+}
+
 /* ────────────────────────── */
 /*     ÁREAS DE ACTUACIÓN     */
 /* ────────────────────────── */
@@ -370,7 +396,7 @@ h5 * {
   top: 35px;
 }
 
-@media only screen and (min-width: 678px) {
+@media only screen and (min-width: 768px) {
   #areas .avia-slider-testimonials .avia-testimonial {
     padding: 0 70px !important;
   }
@@ -387,29 +413,6 @@ h5 * {
     font-size: 10px;
   }
 }
-.callout .texto {
-  padding: 50px 0;
-}
-.callout .texto blockquote {
-  padding-left: 45px;
-  padding-bottom: 10px;
-  margin: 0;
-}
-.callout .texto blockquote p {
-  color: white;
-  font-size: 40px;
-  text-align: left;
-  font-weight: normal;
-  font-family: "Berkshire Swash", sans-serif;
-  line-height: 65px;
-  margin: 0;
-}
-.callout .texto blockquote p u {
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-  padding-bottom: 5px;
-}
-
 /* ──────────────── */
 /*     ENTRADAS     */
 /* ──────────────── */
@@ -427,7 +430,7 @@ h5 * {
   margin-bottom: 0 !important;
 }
 
-@media only screen and (min-width: 678px) {
+@media only screen and (min-width: 768px) {
   #entradas .avia-content-slider .slide-entry-wrap .slide-entry {
     margin-bottom: 0 !important;
   }

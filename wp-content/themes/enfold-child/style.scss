@@ -16,7 +16,7 @@ $lightprimary: #FFA07A; // rgb(255,160,122)
 // Responsive
 
 $mobile: 480px;
-$tablet: 678px;
+$tablet: 768px;
 $laptop: 980px;
 
 // Tipografías
@@ -148,24 +148,34 @@ h5 * {
 
 /* Título */
 
-#portada h1,
-#portada h1 * {
-	color: rgb(50,50,50) !important;
-    font-size: 25px !important;
-    font-weight: 300;
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 30px;
-    margin: -30px 0 0;
-    transform: rotateX(18deg);
+#portada {
+
+	.logo-grande {
+		display: none;
+	}
+	.logo-chico {
+		display: block;
+		width: 100%;
+		max-width: 300px;
+		height: auto;
+	}
 }
 
 // Mobile First
 
 @media only screen and (min-width: $tablet) {
-	#portada h1,
-	#portada h1 * {
-		font-size: 100px;
+	#portada {
+
+		.container {
+			height: 600px !important;
+		}
+
+		.logo-grande {
+			display: block;
+		}
+		.logo-chico {
+			display: none;
+		}
 	}
 }
 
@@ -282,6 +292,36 @@ h5 * {
 @media only screen and (min-width: $laptop) {
 	#introduccion .hr .hr-inner {
 		width: 350px;
+	}
+}
+
+// ─────────────── //
+//     CALLOUT     //
+// ─────────────── //
+
+.callout .texto {
+	padding: 50px 0;
+
+	blockquote {
+		padding-left: 45px;
+		padding-bottom: 10px;
+		margin: 0;
+
+		p {
+			color: white;
+			font-size: 40px;
+			text-align: left;
+			font-weight: normal;
+			font-family: 'Berkshire Swash', sans-serif;
+			line-height: 65px;
+			margin: 0;
+
+			u {
+				text-decoration: none;
+				border-bottom: 1px solid rgba(255,255,255,.25);
+				padding-bottom: 5px;
+			}
+		}
 	}
 }
 
@@ -468,36 +508,6 @@ h5 * {
 	}
 	#areas .avia-slider-testimonials .avia-testimonial-meta-mini .avia-testimonial-subtitle {
 		font-size: 10px;
-	}
-}
-
-// ─────────────── //
-//     CALLOUT     //
-// ─────────────── //
-
-.callout .texto {
-	padding: 50px 0;
-
-	blockquote {
-		padding-left: 45px;
-		padding-bottom: 10px;
-		margin: 0;
-
-		p {
-			color: white;
-			font-size: 40px;
-			text-align: left;
-			font-weight: normal;
-			font-family: 'Berkshire Swash', sans-serif;
-			line-height: 65px;
-			margin: 0;
-
-			u {
-				text-decoration: none;
-				border-bottom: 1px solid rgba(255,255,255,.25);
-				padding-bottom: 5px;
-			}
-		}
 	}
 }
 
