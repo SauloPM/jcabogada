@@ -742,9 +742,9 @@ h5 * {
 	}
 }
 
-// ──────────────── //
-//     ENTRADAS     //
-// ──────────────── //
+// ──────────────────────── //
+//     ÚLTIMAS ENTRADAS     //
+// ──────────────────────── //
 
 #entradas .avia-content-slider .slide-entry-wrap {
 	margin: 0;
@@ -791,7 +791,7 @@ h5 * {
 			// Extracto
 
 			.slide-entry-excerpt {
-				color: rgb(0,0,0,.75);
+				color: $texto;
 			}
 
 			// Fecha
@@ -1098,159 +1098,114 @@ h5 * {
 	}
 }
 
-/* ───────────────────────────────── */
-/*     BLOG, CATEGORÍA, ETIQUETA     */
-/* ───────────────────────────────── */
+// ──────────── //
+//     BLOG     //
+// ──────────── //
 
-/* General */
+.blog {
 
-.tag .slide-entry-wrap,
-.blog .slide-entry-wrap,
-.category .slide-entry-wrap {
-	margin: 0;
+	// Entrada
+
+	.slide-entry {
+		border: 1px solid rgba(0,0,0,.1);
+
+		// Imagen
+
+		.slide-image {
+			border-radius: 0;
+			margin-bottom: 0;
+
+			img {
+				border-radius: 0;
+			}
+		}
+
+		// Comentarios
+
+		.slide-meta {
+			display: none;
+		}
+
+		// Contenido
+
+		.slide-content {
+			text-align: center;
+			background: white;
+			padding: 25px;
+
+			// Título
+
+			.entry-title {
+				color: $darkprimary;
+				font-size: 25px;
+				font-family: 'Berkshire Swash' !important;
+				margin-bottom: 10px;
+			}
+
+			// Extracto
+
+			.slide-entry-excerpt {
+				color: $texto;
+			}
+
+			// Fecha
+
+			time {
+				display: none;
+			}
+		}
+	}
 }
 
-.tag .avia-content-slider .slide-entry-wrap .slide-entry,
-.blog .avia-content-slider .slide-entry-wrap .slide-entry,
-.category .avia-content-slider .slide-entry-wrap .slide-entry {
-	border: 1px solid rgba(0,0,0,.1);
-	margin-bottom: 50px !important;
-}
+// ─────────────────── //
+//     SINGLE POST     //
+// ─────────────────── //
 
-.tag .avia-content-slider .slide-entry-wrap .slide-entry:last-child,
-.blog .avia-content-slider .slide-entry-wrap .slide-entry:last-child,
-.category .avia-content-slider .slide-entry-wrap .slide-entry:last-child {
-	margin-bottom: 0 !important;
-}
+.single-post {
 
-/* Imagen destacada */
+	// Imagen destacada
 
-.tag .avia-content-slider .slide-entry-wrap .slide-entry .slide-image
-.blog .avia-content-slider .slide-entry-wrap .slide-entry .slide-image,
-.category .avia-content-slider .slide-entry-wrap .slide-entry .slide-image {
-	margin-bottom: 0;
-}
+	.big-preview {
+		margin: 0 auto;
+		width: 100%;
+		max-width: 500px;
 
-.tag .avia-content-slider .slide-entry-wrap .slide-entry .slide-image,
-.tag .avia-content-slider .slide-entry-wrap .slide-entry .slide-image img,
-.blog .avia-content-slider .slide-entry-wrap .slide-entry .slide-image,
-.blog .avia-content-slider .slide-entry-wrap .slide-entry .slide-image img,
-.category .avia-content-slider .slide-entry-wrap .slide-entry .slide-image,
-.category .avia-content-slider .slide-entry-wrap .slide-entry .slide-image img {
-	border-radius: 0;
-}
+		img {
+			border-radius: 0;
+		}
+	}
 
-/* Texto */
+	// Título
 
-.tag .avia-content-slider .slide-entry-wrap .slide-entry .slide-content
-.blog .avia-content-slider .slide-entry-wrap .slide-entry .slide-content,
-.category .avia-content-slider .slide-entry-wrap .slide-entry .slide-content {
-	text-align: center;
-	background: white;
-	padding: 25px;
-}
+	.post-title {
+		color: $darkprimary !important;
+		font-size: 50px !important;
+		font-weight: 400;
+		font-family: 'Berkshire Swash', sans-serif !important;
+		text-transform: none;
+		line-height: 50px;
+		padding: 0 !important;
+		margin: 25px 0 75px !important;
+	}
 
-.tag .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .entry-title,
-.blog .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .entry-title,
-.category .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .entry-title {
-	color: $darkprimary;
-	font-size: 25px;
-	font-family: 'Berkshire Swash' !important;
-	margin-bottom: 10px;
-}
+	// Texto
 
-.tag .avia-content-slider .slide-entry-wrap .slide-entry .slide-content time
-.blog .avia-content-slider .slide-entry-wrap .slide-entry .slide-content time,
-.category .avia-content-slider .slide-entry-wrap .slide-entry .slide-content time {
-	display: none;
-}
+	.entry-content {
+		color: $texto;
+	}
 
-.tag .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .slide-entry-excerpt,
-.blog .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .slide-entry-excerpt,
-.category .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .slide-entry-excerpt {
-	color: rgb(0,0,0,.75);
-}
+	// "Compartir esta entrada"
 
-/* Botón */
+	.av-share-box {
 
-.tag .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link,
-.blog .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link,
-.category .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link {
-	font-size: 11px;
-    text-transform: uppercase;
-    border: 1px solid $darkprimary;
-    letter-spacing: 1px;
-    padding: 5px 0;
-    margin: 20px auto 0;
-    width: 110px;
-    cursor: pointer;
-    transition: .5s;
-}
+		h5 {
+			color: $darkprimary;
+		}
 
-.tag .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover,
-.blog .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover,
-.category .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover {
-	background: $darkprimary;
-}
-
-.tag .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a,
-.blog .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a,
-.category .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a {
-	color: $darkprimary;
-	text-decoration: none;
-	transition: .5s;
-}
-
-.tag .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover a,
-.blog .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover a,
-.category .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover a {
-	color: white;
-}
-
-.tag .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a .more-link-arrow,
-.blog .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a .more-link-arrow,
-.category .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a .more-link-arrow {
-	display: none;
-}
-
-/* ─────────────────── */
-/*     SINGLE POST     */
-/* ─────────────────── */
-
-/* Imagen */
-
-.single-post .wp-post-image {
-	border-radius: 0;
-}
-
-/* Título */
-
-.single-post .post-title,
-.single-post .post-title a {
-	color: $darkprimary !important;
-	font-size: 50px;
-	font-weight: 400;
-	font-family: 'Berkshire Swash', sans-serif !important;
-	text-transform: none;
-	background: linear-gradient(to right, $darkprimary 75%, $lightprimary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    line-height: 50px;
-    margin: 15px 0 25px;
-}
-
-/* Meta */
-
-.single-post .post-meta-infos {
-	display: none;
-}
-
-/* Texto */
-
-.single-post .entry-content {
-	color: #808080;
+		.av-share-link {
+			color: $texto;
+		}
+	}
 }
 
 /* ─────────────── */
