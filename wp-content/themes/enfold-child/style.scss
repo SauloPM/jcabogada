@@ -712,23 +712,24 @@ h5 * {
 	display: none;
 }
 
-/* ────────────────────────────── */
-/*     FORMULARIO DE CONTACTO     */
-/* ────────────────────────────── */
+// ──────────────── //
+//     CONTACTO     //
+// ──────────────── //
 
-/* General */
+#contacto {
+	
+	.flex_column.av_three_fifth {
+		background: white;
+		border: 1px solid rgba(0,0,0,.1);
+		padding: 50px;
+	}
 
-#contacto .flex_column.av_three_fifth {
-	background: white;
-	border: 1px solid rgba(0,0,0,.1);
-	padding: 50px;
-}
+	// Formulario
 
-/* Formulario */
-
-#contacto form,
-#contacto form fieldset {
-	margin: 0;
+	#contacto form,
+	#contacto form fieldset {
+		margin: 0;
+	}
 }
 
 /* Campos */
@@ -845,56 +846,88 @@ h5 * {
 	padding: 50px 0;
 }
 
-/* ────────────── */
-/*     FOOTER     */
-/* ────────────── */
+// ────────────── //
+//     FOOTER     //
+// ────────────── //
 
-/* General */
+#socket {
 
-#socket,
-#socket .container {
-	padding: 0 !important;
-	margin: 0 auto;
-	height: 125px;
+	.container {
+		padding: 0 !important;
+		height: 150px;
+	}
+
+	// Copyright
+	
+	.copyright {
+		display: block;
+		color: #808080;
+		font-size: 11px;
+		font-weight: normal;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		text-align: center;
+		line-height: 25px;
+		margin: 0 !important;
+		position: absolute;
+		bottom: 30px;
+		width: 100%;
+	}
+	
+	// Legal
+	
+	.menu {
+		display: block;
+		font-size: 11px;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		line-height: 25px;
+		white-space: nowrap;
+		margin: 0 !important;
+		position: absolute;
+		top: 30px;
+		left: 0;
+		width: 100%;
+		
+		.menu-item {
+			display: block;
+			float: none;
+			
+			a {
+				text-decoration: none;
+				transition: .5s;
+				
+				&:hover {
+					opacity: .75;
+				}
+			}
+			
+			&:first-child {
+				margin-bottom: 15px;
+			}
+		}
+	}
 }
 
-/* Copyright */
+// Mobile First
 
-#socket .copyright {
-	display: block;
-	color: #808080;
-	font-size: 11px;
-	font-weight: normal;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-	text-align: center;
-    line-height: 25px;
-	margin: 0 !important;
-	position: absolute;
-	bottom: 30px;
-	width: 100%;
-}
-
-/* Submenú */
-
-#socket .menu {
-	display: block;
-    font-size: 11px;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    line-height: 25px;
-    white-space: nowrap;
-    margin: 0 !important;
-    position: absolute;
-    top: 30px;
-    left: 0;
-    width: 100%;
-}
-
-#socket .menu li {
-	display: inline-block !important;
-	float: none !important;
+@media only screen and (min-width: $mobile) {
+	
+	#socket {
+		
+		.container {
+			height: 125px;
+		}
+		
+		.menu .menu-item {
+			display: inline-block;
+			
+			&:first-child {
+				margin-bottom: 0;
+			}
+		}
+	}
 }
 
 /* ─────────────── */

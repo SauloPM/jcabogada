@@ -567,19 +567,13 @@ h5 * {
   display: none;
 }
 
-/* ────────────────────────────── */
-/*     FORMULARIO DE CONTACTO     */
-/* ────────────────────────────── */
-/* General */
 #contacto .flex_column.av_three_fifth {
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 50px;
 }
-
-/* Formulario */
-#contacto form,
-#contacto form fieldset {
+#contacto #contacto form,
+#contacto #contacto form fieldset {
   margin: 0;
 }
 
@@ -690,18 +684,10 @@ h5 * {
   padding: 50px 0;
 }
 
-/* ────────────── */
-/*     FOOTER     */
-/* ────────────── */
-/* General */
-#socket,
 #socket .container {
   padding: 0 !important;
-  margin: 0 auto;
-  height: 125px;
+  height: 150px;
 }
-
-/* Copyright */
 #socket .copyright {
   display: block;
   color: #808080;
@@ -716,8 +702,6 @@ h5 * {
   bottom: 30px;
   width: 100%;
 }
-
-/* Submenú */
 #socket .menu {
   display: block;
   font-size: 11px;
@@ -732,12 +716,32 @@ h5 * {
   left: 0;
   width: 100%;
 }
-
-#socket .menu li {
-  display: inline-block !important;
-  float: none !important;
+#socket .menu .menu-item {
+  display: block;
+  float: none;
+}
+#socket .menu .menu-item a {
+  text-decoration: none;
+  transition: 0.5s;
+}
+#socket .menu .menu-item a:hover {
+  opacity: 0.75;
+}
+#socket .menu .menu-item:first-child {
+  margin-bottom: 15px;
 }
 
+@media only screen and (min-width: 480px) {
+  #socket .container {
+    height: 125px;
+  }
+  #socket .menu .menu-item {
+    display: inline-block;
+  }
+  #socket .menu .menu-item:first-child {
+    margin-bottom: 0;
+  }
+}
 /* ─────────────── */
 /*     MODALES     */
 /* ─────────────── */
