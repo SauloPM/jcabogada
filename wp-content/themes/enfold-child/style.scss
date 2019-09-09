@@ -438,6 +438,7 @@ h5 * {
 		justify-content: center;
 		align-items: center;
 		margin: 0 12.5px 50px !important;
+		vertical-align: top;
 		width: 300px;
 		height: 200px;
 	
@@ -741,106 +742,109 @@ h5 * {
 	}
 }
 
-/* ──────────────── */
-/*     ENTRADAS     */
-/* ──────────────── */
+// ──────────────── //
+//     ENTRADAS     //
+// ──────────────── //
 
-/* General */
-
-#entradas .slide-entry-wrap {
+#entradas .avia-content-slider .slide-entry-wrap {
 	margin: 0;
+
+	// Entrada
+
+	.slide-entry {
+		border: 1px solid rgba(0,0,0,.1);
+		margin-bottom: 50px !important;
+
+		// Imagen
+
+		.slide-image {
+			border-radius: 0;
+			margin-bottom: 0;
+
+			img {
+				border-radius: 0;
+			}
+		}
+
+		// Comentarios
+
+		.slide-meta {
+			display: none;
+		}
+
+		// Contenido
+
+		.slide-content {
+			text-align: center;
+			background: white;
+			padding: 25px;
+
+			// Título
+
+			.entry-title {
+				color: $darkprimary;
+				font-size: 25px;
+				font-family: 'Berkshire Swash' !important;
+				margin-bottom: 10px;
+			}
+
+			// Extracto
+
+			.slide-entry-excerpt {
+				color: rgb(0,0,0,.75);
+			}
+
+			// Fecha
+
+			time {
+				display: none;
+			}
+
+			// Botón
+
+			.read-more-link {
+				font-size: 11px;
+				text-transform: uppercase;
+				border: 1px solid $darkprimary;
+				letter-spacing: 1px;
+				padding: 5px 0;
+				margin: 20px auto 0;
+				width: 110px;
+				transition: .5s;
+				cursor: pointer;
+
+				a {
+					color: $darkprimary;
+					text-decoration: none;
+					transition: .5s;
+
+					.more-link-arrow {
+						display: none;
+					}
+				}
+
+				&:hover {
+					background: $darkprimary;
+
+					a {
+						color: white;
+					}
+				}
+			}
+		}
+
+		&:last-child {
+			margin-bottom: 0 !important;
+		}
+	}
 }
 
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry {
-	border: 1px solid rgba(0,0,0,.1);
-	margin-bottom: 50px !important;
-}
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry:last-child {
-	margin-bottom: 0 !important;
-}
+// Mobile First
 
 @media only screen and (min-width: $tablet) {
 	#entradas .avia-content-slider .slide-entry-wrap .slide-entry {
 		margin-bottom: 0 !important;
 	}
-}
-
-/* Imagen destacada */
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-image {
-	margin-bottom: 0;
-}
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-image,
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-image img {
-	border-radius: 0;
-}
-
-/* Comentarios */
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-meta {
-	display: none;
-}
-
-/* Texto */
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content {
-	text-align: center;
-	background: white;
-	padding: 25px;
-}
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .entry-title {
-	color: $darkprimary;
-	font-size: 25px;
-	font-family: 'Berkshire Swash' !important;
-    background: linear-gradient(to right, $darkprimary 75%, $lightprimary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-	margin-bottom: 10px;
-}
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content time {
-	display: none;
-}
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .slide-entry-excerpt {
-	color: rgb(0,0,0,.75);
-}
-
-/* Botón */
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link {
-	font-size: 11px;
-    text-transform: uppercase;
-    border: 1px solid $darkprimary;
-    letter-spacing: 1px;
-    padding: 5px 0;
-    margin: 20px auto 0;
-    width: 110px;
-    cursor: pointer;
-    transition: .5s;
-}
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover {
-	background: $darkprimary;
-}
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a {
-	color: $darkprimary;
-	text-decoration: none;
-	transition: .5s;
-}
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover a {
-	color: white;
-}
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a .more-link-arrow {
-	display: none;
 }
 
 // ──────────────── //

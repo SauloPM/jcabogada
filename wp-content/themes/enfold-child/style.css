@@ -294,6 +294,7 @@ h5 * {
   justify-content: center;
   align-items: center;
   margin: 0 12.5px 50px !important;
+  vertical-align: top;
   width: 300px;
   height: 200px;
 }
@@ -537,19 +538,65 @@ h5 * {
     font-size: 10px;
   }
 }
-/* ──────────────── */
-/*     ENTRADAS     */
-/* ──────────────── */
-/* General */
-#entradas .slide-entry-wrap {
+#entradas .avia-content-slider .slide-entry-wrap {
   margin: 0;
 }
-
 #entradas .avia-content-slider .slide-entry-wrap .slide-entry {
   border: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 50px !important;
 }
-
+#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-image {
+  border-radius: 0;
+  margin-bottom: 0;
+}
+#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-image img {
+  border-radius: 0;
+}
+#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-meta {
+  display: none;
+}
+#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content {
+  text-align: center;
+  background: white;
+  padding: 25px;
+}
+#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .entry-title {
+  color: #E9967A;
+  font-size: 25px;
+  font-family: "Berkshire Swash" !important;
+  margin-bottom: 10px;
+}
+#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .slide-entry-excerpt {
+  color: rgba(0, 0, 0, 0.75);
+}
+#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content time {
+  display: none;
+}
+#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link {
+  font-size: 11px;
+  text-transform: uppercase;
+  border: 1px solid #E9967A;
+  letter-spacing: 1px;
+  padding: 5px 0;
+  margin: 20px auto 0;
+  width: 110px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a {
+  color: #E9967A;
+  text-decoration: none;
+  transition: 0.5s;
+}
+#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a .more-link-arrow {
+  display: none;
+}
+#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover {
+  background: #E9967A;
+}
+#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover a {
+  color: white;
+}
 #entradas .avia-content-slider .slide-entry-wrap .slide-entry:last-child {
   margin-bottom: 0 !important;
 }
@@ -559,79 +606,6 @@ h5 * {
     margin-bottom: 0 !important;
   }
 }
-/* Imagen destacada */
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-image {
-  margin-bottom: 0;
-}
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-image,
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-image img {
-  border-radius: 0;
-}
-
-/* Comentarios */
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-meta {
-  display: none;
-}
-
-/* Texto */
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content {
-  text-align: center;
-  background: white;
-  padding: 25px;
-}
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .entry-title {
-  color: #E9967A;
-  font-size: 25px;
-  font-family: "Berkshire Swash" !important;
-  background: linear-gradient(to right, #E9967A 75%, #FFA07A);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-  margin-bottom: 10px;
-}
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content time {
-  display: none;
-}
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .slide-entry-excerpt {
-  color: rgba(0, 0, 0, 0.75);
-}
-
-/* Botón */
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link {
-  font-size: 11px;
-  text-transform: uppercase;
-  border: 1px solid #E9967A;
-  letter-spacing: 1px;
-  padding: 5px 0;
-  margin: 20px auto 0;
-  width: 110px;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover {
-  background: #E9967A;
-}
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a {
-  color: #E9967A;
-  text-decoration: none;
-  transition: 0.5s;
-}
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover a {
-  color: white;
-}
-
-#entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a .more-link-arrow {
-  display: none;
-}
-
 #contacto .recuadro {
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
