@@ -49,11 +49,6 @@ h5 * {
   margin: 0;
 }
 
-@media only screen and (min-width: 768px) {
-  .encabezado h2 {
-    font-size: 70px;
-  }
-}
 .hr span {
   border-color: rgba(0, 0, 0, 0.1);
 }
@@ -219,7 +214,7 @@ h5 * {
 }
 @media only screen and (min-width: 768px) {
   #introduccion .content {
-    padding: 75px 0;
+    padding: 130px 0;
   }
   #introduccion .hr .hr-inner {
     width: 250px;
@@ -282,21 +277,15 @@ h5 * {
     line-height: 65px;
   }
 }
-/* ────────────────────────── */
-/*     ÁREAS DE ACTUACIÓN     */
-/* ────────────────────────── */
-/* Tarjetas */
 #areas {
   text-align: center;
 }
-
 #areas .iconbox {
   display: inline-block;
   margin: 0 12.5px 50px !important;
   width: 300px;
   height: 200px;
 }
-
 #areas .iconbox .iconbox_content {
   display: flex;
   align-items: center;
@@ -307,78 +296,36 @@ h5 * {
   padding: 0;
   position: relative;
   height: 238px;
-  cursor: pointer;
   transition: 0.5s;
+  cursor: pointer;
 }
-
-#areas .hr + .iconbox .iconbox_content {
+#areas .iconbox .iconbox_content.penal .iconbox_content {
   background: url(/wp-content/uploads/2018/11/penal.jpg) no-repeat top center;
   background-size: cover;
 }
-
-#areas .hr + .iconbox + .iconbox .iconbox_content {
+#areas .iconbox .iconbox_content.familia .iconbox_content {
   background: url(/wp-content/uploads/2018/11/familia.jpg) no-repeat top center;
   background-size: cover;
 }
-
-#areas .hr + .iconbox + .iconbox + .iconbox .iconbox_content {
+#areas .iconbox .iconbox_content.laboral .iconbox_content {
   background: url(/wp-content/uploads/2018/11/laboral.jpg) no-repeat top center;
   background-size: cover;
 }
-
-#areas .hr + .iconbox + .iconbox + .iconbox + .iconbox .iconbox_content {
+#areas .iconbox .iconbox_content.civil-general .iconbox_content {
   background: url(/wp-content/uploads/2018/11/civil.jpg) no-repeat top center;
   background-size: cover;
 }
-
-#areas .hr + .iconbox + .iconbox + .iconbox + .iconbox + .iconbox .iconbox_content {
+#areas .iconbox .iconbox_content.responsabilidad-civil .iconbox_content {
   background: url(/wp-content/uploads/2018/11/responsabilidad.jpg) no-repeat top center;
   background-size: cover;
 }
-
-#areas .hr + .iconbox + .iconbox + .iconbox + .iconbox + .iconbox + .iconbox .iconbox_content {
+#areas .iconbox .iconbox_content.administrativo-fiscal .iconbox_content {
   background: url(/wp-content/uploads/2018/11/administrativo.jpg) no-repeat top center;
   background-size: cover;
 }
-
-#areas .iconbox .iconbox_content::before {
-  content: "";
-  display: block;
-  background: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-}
-
-#areas .iconbox .iconbox_content::after {
-  content: "";
-  display: block;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 50%;
-  height: 50%;
-  opacity: 0;
-  transition: 0.5s;
-}
-
-#areas .iconbox .iconbox_content:hover::after {
-  width: 83%;
-  height: 75%;
-  opacity: 1;
-}
-
-#areas .iconbox .iconbox_content.active::after {
+#areas .iconbox .iconbox_content .iconbox_icon {
   display: none;
 }
-
 #areas .iconbox .iconbox_content .iconbox_content_title {
   color: rgba(255, 255, 255, 0.75);
   font-size: 25px;
@@ -393,13 +340,111 @@ h5 * {
   z-index: 25;
   transition: 0.5s;
 }
-
+#areas .iconbox .iconbox_content::before {
+  content: "";
+  display: block;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+#areas .iconbox .iconbox_content::after {
+  content: "";
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  height: 50%;
+  opacity: 0;
+  transition: 0.5s;
+}
 #areas .iconbox .iconbox_content:hover .iconbox_content_title {
   color: white;
 }
-
-#areas .iconbox .iconbox_content .iconbox_icon {
+#areas .iconbox .iconbox_content:hover::after {
+  width: 83%;
+  height: 75%;
+  opacity: 1;
+}
+#areas .iconbox .iconbox_content.active::after {
   display: none;
+}
+
+#modales {
+  display: none;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 100vh;
+}
+#modales .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+#modales h5 {
+  color: #E9967A;
+  font-size: 30px;
+  font-weight: normal;
+  font-family: "Berkshire Swash", sans-serif;
+  border-bottom: 1px solid rgba(233, 150, 122, 0.25);
+  padding: 0 0 15px;
+  margin: 0 0 20px;
+}
+#modales .avia_codeblock_section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#modales .avia_codeblock_section .modal {
+  display: block;
+  list-style: none;
+  text-align: left;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  margin: 0;
+  position: absolute;
+  max-height: 500px;
+  opacity: 0;
+  overflow-y: auto;
+  transition: 1s;
+}
+#modales .avia_codeblock_section .modal li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin: 0;
+}
+#modales .avia_codeblock_section .modal li:last-child {
+  border: none;
+}
+#modales .cerrar-modal {
+  display: block;
+  color: #E9967A;
+  font-size: 50px;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 25;
+  transition: 0.5s;
+  cursor: pointer;
+}
+#modales .cerrar-modal:hover {
+  opacity: 0.75;
 }
 
 @media only screen and (min-width: 480px) {
@@ -739,90 +784,6 @@ h5 * {
     margin-bottom: 0;
   }
 }
-/* ─────────────── */
-/*     MODALES     */
-/* ─────────────── */
-/* General */
-#modales {
-  display: none;
-  background: white;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  height: 100vh;
-}
-
-#modales .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-/* Encabezado */
-#modales h5 {
-  color: #E9967A;
-  font-size: 30px;
-  font-weight: normal;
-  font-family: "Berkshire Swash", sans-serif;
-  border-bottom: 1px solid rgba(233, 150, 122, 0.25);
-  padding: 0 0 15px;
-  margin: 0 0 20px;
-}
-
-/* Listado */
-#modales .avia_codeblock_section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#modales .avia_codeblock_section .modal {
-  display: block;
-  list-style: none;
-  text-align: left;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  padding: 50px;
-  margin: 0;
-  position: absolute;
-  max-height: 500px;
-  opacity: 0;
-  overflow-y: auto;
-  transition: 1s;
-}
-
-#modales .cerrar-modal {
-  display: block;
-  color: #E9967A;
-  font-size: 50px;
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  z-index: 25;
-  cursor: pointer;
-  opacity: 0.75;
-  transition: 0.5s;
-}
-
-#modales .cerrar-modal:hover {
-  opacity: 1;
-  transform: scale(1.15);
-}
-
-#modales .avia_codeblock_section .modal li {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  margin: 0;
-}
-
-#modales .avia_codeblock_section .modal li:last-child {
-  border: none;
-}
-
 /* ───────────────────────────────── */
 /*     BLOG, CATEGORÍA, ETIQUETA     */
 /* ───────────────────────────────── */
