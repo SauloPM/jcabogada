@@ -253,6 +253,9 @@ h5 * {
     width: 350px;
   }
 }
+.callout .content {
+  padding: 50px 0;
+}
 .callout .texto {
   padding: 50px 0;
 }
@@ -263,11 +266,11 @@ h5 * {
 }
 .callout .texto blockquote p {
   color: white;
-  font-size: 40px;
+  font-size: 20px;
   text-align: left;
   font-weight: normal;
   font-family: "Berkshire Swash", sans-serif;
-  line-height: 65px;
+  line-height: 35px;
   margin: 0;
 }
 .callout .texto blockquote p u {
@@ -276,6 +279,15 @@ h5 * {
   padding-bottom: 5px;
 }
 
+@media only screen and (min-width: 480px) {
+  .callout .content {
+    padding: 150px 0;
+  }
+  .callout .texto blockquote p {
+    font-size: 40px;
+    line-height: 65px;
+  }
+}
 /* ────────────────────────── */
 /*     ÁREAS DE ACTUACIÓN     */
 /* ────────────────────────── */
