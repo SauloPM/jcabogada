@@ -80,25 +80,47 @@ h5 * {
     width: 500px;
   }
 }
-#header .phone-info {
+#header_meta {
+  display: none;
+}
+#header_meta .phone-info {
   padding: 0;
 }
-#header .phone-info .email,
-#header .phone-info .telefono {
+#header_meta .phone-info .email,
+#header_meta .phone-info .telefono {
   line-height: 30px;
 }
-#header .phone-info .email {
+#header_meta .phone-info .email {
   border-right: 1px solid #ebebeb;
   padding-right: 10px;
 }
-#header .phone-info .telefono {
+#header_meta .phone-info .telefono {
   padding-left: 10px;
 }
 
-#header_main {
-  background: white;
+@media only screen and (min-width: 768px) {
+  #header_meta {
+    display: block;
+  }
+}
+#header_main .header_bg {
+  opacity: 1;
+}
+#header_main .logo a {
+  display: none;
+}
+#header_main .menu .menu-item-search-dropdown {
+  display: none !important;
 }
 
+@media only screen and (min-width: 768px) {
+  #header_main .logo a {
+    display: block;
+  }
+  #header_main .menu .menu-item-search-dropdown {
+    display: block !important;
+  }
+}
 /* Título */
 #portada .logo-grande {
   display: none;
