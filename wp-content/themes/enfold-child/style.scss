@@ -189,8 +189,6 @@ h5 * {
 //     PORTADA     //
 // ─────────────── //
 
-/* Título */
-
 #portada {
 
 	.logo-grande {
@@ -229,6 +227,10 @@ h5 * {
 #introduccion {
 	text-align: center;
 
+	.content {
+		padding: 75px 0;
+	}
+
 	// Separador
 
 	.hr {
@@ -253,10 +255,12 @@ h5 * {
 		}
 	}
 
-	
 	// Texto
 
-	p {
+	.texto {
+		text-align: left;
+		font-size: 15px;
+		line-height: 30px;
 		margin: 0;
 
 		strong {
@@ -269,31 +273,31 @@ h5 * {
 
 	.iconbox {
 		display: inline-block;
-		margin: 50px 10px !important;
+		margin: 30px auto !important;
 		vertical-align: middle;
-		width: 275px;
-		height: 173px;
+		width: 250px;
+		height: 125px;
 
 		.iconbox_content {
 			display: flex;
-			align-items: center;
+			align-items: flex-end;
 			justify-content: center;
 			background: white;
 			border: 1px solid darksalmon;
 			border-radius: 0;
 			box-shadow: none;
 			padding: 0 35px;
-			height: 175px;
+			height: 125px;
 
 			.iconbox_content_title {
 				color: darksalmon;
-				font-size: 25px;
+				font-size: 18px;
 				font-weight: 400;
 				font-family: 'Berkshire Swash', sans-serif;
 				text-transform: none;
 				letter-spacing: 0;
 				line-height: 30px;
-				margin: 0;
+				margin: 0 0 15px;
 			}
 
 			.iconbox_icon {
@@ -313,7 +317,7 @@ h5 * {
 
 	// Logo "Transita2"
 
-	img[title="Logo Transita2"] {
+	.transita2 {
 		margin-top: 50px;
 	}
 }
@@ -327,8 +331,37 @@ h5 * {
 }
 
 @media only screen and (min-width: $tablet) {
-	#introduccion .hr .hr-inner {
-		width: 250px;
+	
+	#introduccion {
+
+		.content {
+			padding: 75px 0;
+		}
+
+		.hr .hr-inner {
+			width: 250px;
+		}
+
+		.texto {
+			text-align: center;
+			font-size: 25px;
+			line-height: 50px;
+		}
+
+		.iconbox {
+			margin: 50px 10px !important;
+			height: 173px;
+			
+			.iconbox_content {
+				align-items: center;
+				height: 175px;
+
+				.iconbox_content_title {
+					font-size: 25px;
+					margin: 0;
+				}
+			}
+		}
 	}
 }
 

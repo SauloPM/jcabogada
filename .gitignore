@@ -30,6 +30,9 @@ wp-content/plugins/hello.php
 /sitemap.xml
 /sitemap.xml.gz
 
+# SASS
+wp-content/themes/enfold-child/style.css.map
+
 # WordPress » Plugin "All in One"
 wp-content/ai1wm-backups/*
 wp-content/ai1wm-backups/index.php

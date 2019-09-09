@@ -121,7 +121,6 @@ h5 * {
     display: block !important;
   }
 }
-/* Título */
 #portada .logo-grande {
   display: none;
 }
@@ -146,6 +145,9 @@ h5 * {
 #introduccion {
   text-align: center;
 }
+#introduccion .content {
+  padding: 75px 0;
+}
 #introduccion .hr .hr-inner {
   margin-left: 0;
   margin-right: 0;
@@ -162,40 +164,43 @@ h5 * {
 #introduccion .hr + .av_textblock_section {
   margin-bottom: 50px;
 }
-#introduccion p {
+#introduccion .texto {
+  text-align: left;
+  font-size: 15px;
+  line-height: 30px;
   margin: 0;
 }
-#introduccion p strong {
+#introduccion .texto strong {
   color: #808080;
   font-weight: normal;
 }
 #introduccion .iconbox {
   display: inline-block;
-  margin: 50px 10px !important;
+  margin: 30px auto !important;
   vertical-align: middle;
-  width: 275px;
-  height: 173px;
+  width: 250px;
+  height: 125px;
 }
 #introduccion .iconbox .iconbox_content {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   background: white;
   border: 1px solid darksalmon;
   border-radius: 0;
   box-shadow: none;
   padding: 0 35px;
-  height: 175px;
+  height: 125px;
 }
 #introduccion .iconbox .iconbox_content .iconbox_content_title {
   color: darksalmon;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: 400;
   font-family: "Berkshire Swash", sans-serif;
   text-transform: none;
   letter-spacing: 0;
   line-height: 30px;
-  margin: 0;
+  margin: 0 0 15px;
 }
 #introduccion .iconbox .iconbox_content .iconbox_icon {
   color: darksalmon;
@@ -209,7 +214,7 @@ h5 * {
   height: 50px;
   transform: translateX(-50%);
 }
-#introduccion img[title="Logo Transita2"] {
+#introduccion .transita2 {
   margin-top: 50px;
 }
 
@@ -219,8 +224,28 @@ h5 * {
   }
 }
 @media only screen and (min-width: 768px) {
+  #introduccion .content {
+    padding: 75px 0;
+  }
   #introduccion .hr .hr-inner {
     width: 250px;
+  }
+  #introduccion .texto {
+    text-align: center;
+    font-size: 25px;
+    line-height: 50px;
+  }
+  #introduccion .iconbox {
+    margin: 50px 10px !important;
+    height: 173px;
+  }
+  #introduccion .iconbox .iconbox_content {
+    align-items: center;
+    height: 175px;
+  }
+  #introduccion .iconbox .iconbox_content .iconbox_content_title {
+    font-size: 25px;
+    margin: 0;
   }
 }
 @media only screen and (min-width: 980px) {
