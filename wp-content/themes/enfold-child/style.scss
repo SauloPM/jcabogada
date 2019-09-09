@@ -420,6 +420,10 @@ h5 * {
 #areas {
 	text-align: center;
 
+	.content {
+		padding: 75px 0;
+	}
+
 	.entry-content-wrapper {
 		display: flex;
 		align-items: center;
@@ -646,63 +650,94 @@ h5 * {
 	}
 }
 
+@media only screen and (min-width: $tablet) {
+	#areas .content {
+		padding: 130px 0;
+	}
+}
+
 // ─────────────────── //
 //     TESTIMONIOS     //
 // ─────────────────── //
 
-/* Testimonios */
-
-#areas .avia-slider-testimonials {
+.testimonios {
 	margin-top: 25px;
 	margin-bottom: 0;
-}
 
-#areas .avia-slider-testimonials .avia-testimonial {
-	padding: 0 !important;
-}
+	.slider {
 
-#areas .avia-slider-testimonials .avia-testimonial-content p {
-	font-size: 15px;
-	text-align: center;
-	line-height: 1.65em;
-}
+		.avia-testimonial {
+			padding: 0 !important;
+			margin: 0 !important;
 
-#areas .avia-slider-testimonials .avia-testimonial-meta-mini {
-	text-align: center;
-	white-space: nowrap;
-}
+			// Opinión
 
-#areas .avia-slider-testimonials .avia-testimonial-meta-mini .avia-testimonial-name {
-	font-size: 15px;
-	font-weight: normal;
-	font-family: 'Berkshire Swash', sans-serif;
-	text-align: center;
-    line-height: 50px;
-}
+			.avia-testimonial-content p {
+				font-size: 15px;
+				text-align: center;
+				line-height: 30px;
+			}
 
-#areas .avia-slider-testimonials .avia-testimonial-meta-mini .avia-testimonial-subtitle {
-	font-size: 10px;
-	font-weight: normal;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-}
+			// Autor
 
-#areas .avia-slider-testimonials .avia-slideshow-arrows a {
-	top: 35px;
+			.avia-testimonial-meta-mini {
+				text-align: center !important;
+				white-space: nowrap;
+			
+				.avia-testimonial-name {
+					font-size: 15px;
+					font-weight: normal;
+					font-family: 'Berkshire Swash', sans-serif;
+					text-align: center;
+					line-height: 50px;
+					margin: 0 !important;
+				}
+				
+				.avia-testimonial-subtitle {
+					font-size: 10px;
+					font-weight: normal;
+					text-transform: uppercase;
+					letter-spacing: 2px;
+				}
+			}
+		}
+
+		// Flechas
+
+		.avia-slideshow-arrows {
+			display: none;
+		}
+	}
 }
 
 @media only screen and (min-width: $tablet) {
-	#areas .avia-slider-testimonials .avia-testimonial {
-		padding: 0 70px !important;
-	}
-	#areas .avia-slider-testimonials .avia-testimonial .avia-testimonial-content p {
-		font-size: 25px;
-	}
-	#areas .avia-slider-testimonials .avia-testimonial-meta-mini .avia-testimonial-name {
-		font-size: 25px;
-	}
-	#areas .avia-slider-testimonials .avia-testimonial-meta-mini .avia-testimonial-subtitle {
-		font-size: 10px;
+
+	.testimonios {
+		margin-top: 25px;
+		margin-bottom: 0;
+	
+		.slider {
+	
+			.avia-testimonial {
+				padding: 0 70px !important;
+
+				.avia-testimonial-content p {
+					font-size: 25px;
+					line-height: 50px;
+				}
+	
+				.avia-testimonial-meta-mini {
+
+					.avia-testimonial-name {
+						font-size: 25px !important;
+					}
+
+					.avia-testimonial-subtitle {
+						font-size: 10px;
+					}
+				}
+			}
+		}
 	}
 }
 

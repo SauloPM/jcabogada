@@ -280,6 +280,9 @@ h5 * {
 #areas {
   text-align: center;
 }
+#areas .content {
+  padding: 75px 0;
+}
 #areas .entry-content-wrapper {
   display: flex;
   align-items: center;
@@ -475,60 +478,62 @@ h5 * {
     padding: 50px;
   }
 }
-/* Testimonios */
-#areas .avia-slider-testimonials {
+@media only screen and (min-width: 768px) {
+  #areas .content {
+    padding: 130px 0;
+  }
+}
+.testimonios {
   margin-top: 25px;
   margin-bottom: 0;
 }
-
-#areas .avia-slider-testimonials .avia-testimonial {
+.testimonios .slider .avia-testimonial {
   padding: 0 !important;
+  margin: 0 !important;
 }
-
-#areas .avia-slider-testimonials .avia-testimonial-content p {
+.testimonios .slider .avia-testimonial .avia-testimonial-content p {
   font-size: 15px;
   text-align: center;
-  line-height: 1.65em;
+  line-height: 30px;
 }
-
-#areas .avia-slider-testimonials .avia-testimonial-meta-mini {
-  text-align: center;
+.testimonios .slider .avia-testimonial .avia-testimonial-meta-mini {
+  text-align: center !important;
   white-space: nowrap;
 }
-
-#areas .avia-slider-testimonials .avia-testimonial-meta-mini .avia-testimonial-name {
+.testimonios .slider .avia-testimonial .avia-testimonial-meta-mini .avia-testimonial-name {
   font-size: 15px;
   font-weight: normal;
   font-family: "Berkshire Swash", sans-serif;
   text-align: center;
   line-height: 50px;
+  margin: 0 !important;
 }
-
-#areas .avia-slider-testimonials .avia-testimonial-meta-mini .avia-testimonial-subtitle {
+.testimonios .slider .avia-testimonial .avia-testimonial-meta-mini .avia-testimonial-subtitle {
   font-size: 10px;
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-
-#areas .avia-slider-testimonials .avia-slideshow-arrows a {
-  top: 35px;
+.testimonios .slider .avia-slideshow-arrows {
+  display: none;
 }
 
 @media only screen and (min-width: 768px) {
-  #areas .avia-slider-testimonials .avia-testimonial {
+  .testimonios {
+    margin-top: 25px;
+    margin-bottom: 0;
+  }
+  .testimonios .slider .avia-testimonial {
     padding: 0 70px !important;
   }
-
-  #areas .avia-slider-testimonials .avia-testimonial .avia-testimonial-content p {
+  .testimonios .slider .avia-testimonial .avia-testimonial-content p {
     font-size: 25px;
+    line-height: 50px;
   }
-
-  #areas .avia-slider-testimonials .avia-testimonial-meta-mini .avia-testimonial-name {
-    font-size: 25px;
+  .testimonios .slider .avia-testimonial .avia-testimonial-meta-mini .avia-testimonial-name {
+    font-size: 25px !important;
   }
-
-  #areas .avia-slider-testimonials .avia-testimonial-meta-mini .avia-testimonial-subtitle {
+  .testimonios .slider .avia-testimonial .avia-testimonial-meta-mini .avia-testimonial-subtitle {
     font-size: 10px;
   }
 }
