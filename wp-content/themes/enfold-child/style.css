@@ -29,8 +29,8 @@
   background: rgba(0, 0, 0, 0.1);
 }
 
-h4,
-h4 * {
+h4.encabezado,
+h4.encabezado * {
   color: darksalmon;
   font-size: 50px;
   font-weight: normal;
@@ -56,7 +56,7 @@ h5 * {
 }
 
 @media only screen and (min-width: 678px) {
-  h4 {
+  h4.encabezado {
     font-size: 70px;
   }
 }
@@ -387,23 +387,24 @@ h5 * {
     font-size: 10px;
   }
 }
-/* ─────────────── */
-/*     CALLOUT     */
-/* ─────────────── */
-#callout h4,
-#callout h4 * {
-  color: white !important;
+.callout .texto {
+  padding: 50px 0;
+}
+.callout .texto blockquote {
+  padding-left: 45px;
+  padding-bottom: 10px;
+  margin: 0;
+}
+.callout .texto blockquote p {
+  color: white;
   font-size: 40px;
-  background: initial;
-  -webkit-background-clip: initial;
-  -webkit-text-fill-color: initial;
-  background-clip: initial;
-  text-fill-color: initial;
+  text-align: left;
+  font-weight: normal;
+  font-family: "Berkshire Swash", sans-serif;
   line-height: 65px;
   margin: 0;
 }
-
-#callout h4 u {
+.callout .texto blockquote p u {
   text-decoration: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
   padding-bottom: 5px;

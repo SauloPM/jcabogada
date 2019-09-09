@@ -51,8 +51,8 @@ $laptop: 980px;
 //     GENERAL     //
 // ─────────────── //
 
-h4,
-h4 * {
+h4.encabezado,
+h4.encabezado * {
 	color: darksalmon;
 	font-size: 50px;
 	font-weight: normal;
@@ -78,7 +78,7 @@ h5 * {
 }
 
 @media only screen and (min-width: $tablet) {
-	h4 {
+	h4.encabezado {
 		font-size: 70px;
 	}
 }
@@ -471,27 +471,34 @@ h5 * {
 	}
 }
 
-/* ─────────────── */
-/*     CALLOUT     */
-/* ─────────────── */
+// ─────────────── //
+//     CALLOUT     //
+// ─────────────── //
 
-#callout h4,
-#callout h4 * {
-	color: white !important;
-	font-size: 40px;
-	background: initial;
-	-webkit-background-clip: initial;
-    -webkit-text-fill-color: initial;
-    background-clip: initial;
-    text-fill-color: initial;
-    line-height: 65px;
-    margin: 0;
-}
+.callout .texto {
+	padding: 50px 0;
 
-#callout h4 u {
-	text-decoration: none;
-	border-bottom: 1px solid rgba(255,255,255,.25);
-	padding-bottom: 5px;
+	blockquote {
+		padding-left: 45px;
+		padding-bottom: 10px;
+		margin: 0;
+
+		p {
+			color: white;
+			font-size: 40px;
+			text-align: left;
+			font-weight: normal;
+			font-family: 'Berkshire Swash', sans-serif;
+			line-height: 65px;
+			margin: 0;
+
+			u {
+				text-decoration: none;
+				border-bottom: 1px solid rgba(255,255,255,.25);
+				padding-bottom: 5px;
+			}
+		}
+	}
 }
 
 /* ──────────────── */
