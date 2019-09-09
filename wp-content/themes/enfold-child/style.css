@@ -837,7 +837,7 @@ h5 * {
   color: #808080;
 }
 .single-post .av-share-box h5 {
-  color: #E9967A;
+  display: none;
 }
 .single-post .av-share-box .av-share-link {
   color: #808080;
