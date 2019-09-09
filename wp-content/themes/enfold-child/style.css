@@ -295,6 +295,8 @@ h5 * {
   box-shadow: none;
   padding: 0;
   position: relative;
+  width: 100%;
+  max-width: 232px;
   height: 238px;
   transition: 0.5s;
   cursor: pointer;
@@ -416,7 +418,7 @@ h5 * {
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  padding: 50px;
+  padding: 50px 25px;
   margin: 0;
   position: absolute;
   max-height: 500px;
@@ -452,6 +454,13 @@ h5 * {
     margin: 0 12.5px 25px !important;
     width: 360px;
     height: 240px;
+  }
+  #areas .iconbox .iconbox_content {
+    max-width: 358px;
+  }
+
+  #modales .avia_codeblock_section .modal {
+    padding: 50px;
   }
 }
 /* Testimonios */
