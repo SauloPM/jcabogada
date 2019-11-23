@@ -39,7 +39,7 @@
 
 h5,
 h5 * {
-  color: #E9967A;
+  color: #D27D64;
   font-size: 30px;
   font-weight: 400;
   font-family: "Berkshire Swash", sans-serif;
@@ -92,14 +92,15 @@ h5 * {
     display: block;
   }
 }
-#header_main .header_bg {
-  opacity: 1;
-}
 #header_main .logo a {
   display: none;
 }
 #header_main .menu .menu-item-search-dropdown {
   display: none !important;
+}
+
+#header .header_bg {
+  opacity: 1;
 }
 
 @media only screen and (min-width: 768px) {
@@ -112,9 +113,11 @@ h5 * {
 }
 #portada .logo-grande {
   display: none;
+  margin: 0;
 }
 #portada .logo-chico {
   display: block;
+  margin: 0;
   width: 100%;
   max-width: 300px;
   height: auto;
@@ -144,7 +147,7 @@ h5 * {
 }
 #introduccion .hr .av-seperator-icon {
   font-size: 20px;
-  border: 1px solid #E9967A;
+  border: 1px solid #D27D64;
   border-radius: 50%;
   line-height: 45px;
   width: 50px;
@@ -175,14 +178,14 @@ h5 * {
   align-items: flex-end;
   justify-content: center;
   background: white;
-  border: 1px solid #E9967A;
+  border: 1px solid #D27D64;
   border-radius: 0;
   box-shadow: none;
   padding: 0 35px;
   height: 125px;
 }
 #introduccion .iconbox .iconbox_content .iconbox_content_title {
-  color: #E9967A;
+  color: #D27D64;
   font-size: 18px;
   font-weight: 400;
   font-family: "Berkshire Swash", sans-serif;
@@ -192,10 +195,10 @@ h5 * {
   margin: 0 0 15px;
 }
 #introduccion .iconbox .iconbox_content .iconbox_icon {
-  color: #E9967A;
+  color: #D27D64;
   font-size: 30px;
   background-color: white;
-  border: 1px solid #E9967A;
+  border: 1px solid #D27D64;
   line-height: 47px;
   top: -39px;
   margin: 0;
@@ -298,6 +301,30 @@ h5 * {
   width: 300px;
   height: 200px;
 }
+#areas .iconbox.penal .iconbox_content {
+  background: url(./../../uploads/2019/09/penal.jpg) no-repeat top center;
+  background-size: cover;
+}
+#areas .iconbox.familia .iconbox_content {
+  background: url(./../../uploads/2019/09/familia.jpg) no-repeat top center;
+  background-size: cover;
+}
+#areas .iconbox.laboral .iconbox_content {
+  background: url(./../../uploads/2018/11/laboral.jpg) no-repeat top center;
+  background-size: cover;
+}
+#areas .iconbox.civil-general .iconbox_content {
+  background: url(./../../uploads/2019/09/civil.jpg) no-repeat top center;
+  background-size: cover;
+}
+#areas .iconbox.responsabilidad-civil .iconbox_content {
+  background: url(./../../uploads/2018/11/responsabilidad.jpg) no-repeat top center;
+  background-size: cover;
+}
+#areas .iconbox.administrativo-fiscal .iconbox_content {
+  background: url(./../../uploads/2019/09/administrativo.jpg) no-repeat top center;
+  background-size: cover;
+}
 #areas .iconbox .iconbox_content {
   display: flex;
   align-items: center;
@@ -313,35 +340,11 @@ h5 * {
   transition: 0.5s;
   cursor: pointer;
 }
-#areas .iconbox .iconbox_content.penal .iconbox_content {
-  background: url(/wp-content/uploads/2018/11/penal.jpg) no-repeat top center;
-  background-size: cover;
-}
-#areas .iconbox .iconbox_content.familia .iconbox_content {
-  background: url(/wp-content/uploads/2018/11/familia.jpg) no-repeat top center;
-  background-size: cover;
-}
-#areas .iconbox .iconbox_content.laboral .iconbox_content {
-  background: url(/wp-content/uploads/2018/11/laboral.jpg) no-repeat top center;
-  background-size: cover;
-}
-#areas .iconbox .iconbox_content.civil-general .iconbox_content {
-  background: url(/wp-content/uploads/2018/11/civil.jpg) no-repeat top center;
-  background-size: cover;
-}
-#areas .iconbox .iconbox_content.responsabilidad-civil .iconbox_content {
-  background: url(/wp-content/uploads/2018/11/responsabilidad.jpg) no-repeat top center;
-  background-size: cover;
-}
-#areas .iconbox .iconbox_content.administrativo-fiscal .iconbox_content {
-  background: url(/wp-content/uploads/2018/11/administrativo.jpg) no-repeat top center;
-  background-size: cover;
-}
 #areas .iconbox .iconbox_content .iconbox_icon {
   display: none;
 }
 #areas .iconbox .iconbox_content .iconbox_content_title {
-  color: rgba(255, 255, 255, 0.75);
+  color: white;
   font-size: 25px;
   font-weight: 400;
   font-family: "Berkshire Swash", sans-serif;
@@ -357,7 +360,7 @@ h5 * {
 #areas .iconbox .iconbox_content::before {
   content: "";
   display: block;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.45);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -379,9 +382,6 @@ h5 * {
   height: 50%;
   opacity: 0;
   transition: 0.5s;
-}
-#areas .iconbox .iconbox_content:hover .iconbox_content_title {
-  color: white;
 }
 #areas .iconbox .iconbox_content:hover::after {
   width: 83%;
@@ -410,7 +410,7 @@ h5 * {
   height: 100vh;
 }
 #modales h5 {
-  color: #E9967A;
+  color: #D27D64;
   font-size: 30px;
   font-weight: normal;
   font-family: "Berkshire Swash", sans-serif;
@@ -448,7 +448,7 @@ h5 * {
 }
 #modales .cerrar-modal {
   display: block;
-  color: #E9967A;
+  color: #D27D64;
   font-size: 50px;
   position: absolute;
   top: 25px;
@@ -561,7 +561,7 @@ h5 * {
   padding: 25px;
 }
 #entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .entry-title {
-  color: #E9967A;
+  color: #D27D64;
   font-size: 25px;
   font-family: "Berkshire Swash" !important;
   margin-bottom: 10px;
@@ -575,7 +575,7 @@ h5 * {
 #entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link {
   font-size: 11px;
   text-transform: uppercase;
-  border: 1px solid #E9967A;
+  border: 1px solid #D27D64;
   letter-spacing: 1px;
   padding: 5px 0;
   margin: 20px auto 0;
@@ -584,7 +584,7 @@ h5 * {
   cursor: pointer;
 }
 #entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link a {
-  color: #E9967A;
+  color: #D27D64;
   text-decoration: none;
   transition: 0.5s;
 }
@@ -592,7 +592,7 @@ h5 * {
   display: none;
 }
 #entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover {
-  background: #E9967A;
+  background: #D27D64;
 }
 #entradas .avia-content-slider .slide-entry-wrap .slide-entry .slide-content .read-more-link:hover a {
   color: white;
@@ -632,7 +632,7 @@ h5 * {
 #contacto .formulario .text_input:focus,
 #contacto .formulario .text_area:focus {
   border: none;
-  border-bottom: 1px solid #E9967A;
+  border-bottom: 1px solid #D27D64;
   border-radius: 0;
   box-shadow: none;
 }
@@ -649,10 +649,10 @@ h5 * {
   height: 150px;
 }
 #contacto .formulario .button {
-  color: #E9967A;
+  color: #D27D64;
   text-transform: uppercase;
   background: white;
-  border: 1px solid #E9967A;
+  border: 1px solid #D27D64;
   border-radius: 0;
   letter-spacing: 1px;
   margin: 42px 0 0;
@@ -661,7 +661,7 @@ h5 * {
 }
 #contacto .formulario .button:hover {
   color: white;
-  background: #E9967A;
+  background: #D27D64;
 }
 #contacto .formulario .hidden + p > label {
   display: none;
@@ -803,7 +803,7 @@ h5 * {
   padding: 25px;
 }
 .blog .slide-entry .slide-content .entry-title {
-  color: #E9967A;
+  color: #D27D64;
   font-size: 25px;
   font-family: "Berkshire Swash" !important;
   margin-bottom: 10px;
@@ -824,7 +824,7 @@ h5 * {
   border-radius: 0;
 }
 .single-post .post-title {
-  color: #E9967A !important;
+  color: #D27D64 !important;
   font-size: 50px !important;
   font-weight: 400;
   font-family: "Berkshire Swash", sans-serif !important;
@@ -848,7 +848,7 @@ h5 * {
 /* ─────────────── */
 /* Encabezado */
 .sidebar .widgettitle {
-  color: #E9967A;
+  color: #D27D64;
   font-size: 20px;
   font-weight: normal;
   font-family: "Berkshire Swash", sans-serif;
@@ -870,7 +870,7 @@ h5 * {
 
 /* Widget - Últimas entradas */
 .sidebar .newsbox .news-headline {
-  color: #E9967A;
+  color: #D27D64;
 }
 
 .sidebar .newsbox .news-time {
@@ -938,7 +938,7 @@ h5 * {
 }
 
 #legal table th {
-  color: #E9967A !important;
+  color: #D27D64 !important;
   font-size: 20px;
   font-weight: normal;
   text-transform: none;
@@ -966,7 +966,7 @@ h5 * {
 
   .responsive .avia_responsive_table .avia-data-table td:before {
     display: block;
-    color: #E9967A;
+    color: #D27D64;
     font-size: 20px !important;
     font-style: normal !important;
     border-bottom: 1px solid rgba(233, 150, 122, 0.5);
@@ -987,7 +987,7 @@ h5 * {
 }
 
 #cookie-law-info-bar a {
-  color: #E9967A;
+  color: #D27D64;
   font-size: 15px;
 }
 

@@ -7,9 +7,9 @@ jQuery(document).ready(function($) {
 	// Apertura de modal
 	$("#areas .iconbox").click(function () {
 		
-		var clase = ".modal-" + $(this).find("h3").text().toLowerCase().replace(/ /g, "-");
+		var target = $(this).find("h3").text().toLowerCase().replace(/ /g, "-");
 		
-		$(clase).addClass("active").css({"opacity" : "1", "position" : "relative"});
+		$(".modal[data-tipo='" + target + "']").addClass("active").css({"opacity" : "1", "position" : "relative"});
 		$("html, body").css("overflow", "hidden");
 
 		$("#header").fadeOut(250);
