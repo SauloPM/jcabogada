@@ -66,7 +66,7 @@ div.cme-listhoriz h3 {
 margin: 0.2em;
 }
 
-table .cme-typecaps {
+div.cme-cap-type-tables {
 border: 1px solid black;
 }
 
@@ -82,6 +82,10 @@ padding-right: 0.3em;
 
 table.cme-typecaps span.cap-x {
 display: none;
+}
+
+h3.cme-cap-section {
+margin-top:0;
 }
 
 a.neg-cap, a.cap-on, a.type-on, a.neg-type-caps, a.cme-neg-all {
@@ -102,7 +106,7 @@ font-size: 1.5em;
 padding-right: 1px;
 padding-right: 1px;
 vertical-align: middle;
-text-decoration: line-through;
+text-decoration: line-through !important;
 }
 
 td.cap-yes span {
@@ -185,7 +189,15 @@ margin-top:5px;
 }
 
 td.cm-has-via-pp {
-background-color: #7f7;
+background-color: #84fb84;
+}
+
+div.pressshack-admin-wrapper footer {
+padding-right: 270px;
+}
+
+body.capabilities_page_capsman-tool div.pressshack-admin-wrapper footer {
+padding-right: 5px;
 }
 
 #akmin div.publishpress-headline {line-height:25px}
@@ -194,3 +206,57 @@ background-color: #7f7;
 
 table#akmin td.sidebar li.publishpress-contact{text-align:center}
 table#akmin td.sidebar li.publishpress-contact a{padding:5px 0 5px 0;}
+
+#pp_features {display:none;border:1px solid #eee;padding:5px;text-align:center;min-width:600px}
+#pp_features div.pp-logo { text-align: center }
+#pp_features div.features-wrap { margin-left: auto; margin-right: auto; text-align: center; width: 600px; }
+#pp_features ul.pp-features { list-style: none; padding-top:10px; text-align:left; margin-left: auto }
+#pp_features ul.pp-features li:before { content: "\2713\0020"; }
+#pp_features ul.pp-features li { padding-bottom: 5px }
+#pp_features img.cme-play { margin-bottom: -3px; margin-left: 5px;}
+
+div.publishpress-caps-manage span.manage-members {margin-left:5px; font-weight:normal; color: #777}
+div.publishpress-caps-manage span.manage-members a {color: #777}
+div.publishpress-caps-manage span.manage-members a:hover {text-decoration: underline; color:#655997 }
+
+div.publishpress-headline .cme-subtext a {font-weight: bold}
+div.publishpress-headline .cme-subtext a:hover {text-decoration: underline}
+
+div.publishpress-caps-backup th {text-align:right; padding-top:28px; width: 140px}
+div.publishpress-caps-backup p.description {max-width:620px !important;}
+
+div.publishpress-caps-backup #cme_select_restore_div {height:250px;}
+div.publishpress-caps-backup #cme_select_restore {
+list-style:none;
+max-height:250px;
+margin:0;
+overflow:auto;
+padding:0;
+background-color: #eee;
+padding: 5px;
+width: min-content;
+text-indent:10px;
+}
+div.publishpress-caps-backup #cme_select_restore li {
+padding: 7px 15px 7px 7px;
+white-space: nowrap;
+background-color: #f4f4f4;
+margin: 0;
+line-height:25px;
+}
+
+div.publishpress-caps-backup #cme_select_restore li label {
+font-size: 13px;
+}
+
+div.publishpress-caps-backup #cme_select_restore li:nth-child(even){background-color:white;}
+
+div.cme-selected-backup-caption {padding-left: 5px;}
+div.cme-restore-button {margin-top: 25px; padding-left: 5px}
+
+div.publishpress-caps-backup td.cme-backup-info{padding:0}
+div.publishpress-caps-backup td.cme-backup-info li {display:none;}
+div.publishpress-caps-backup td.cme-backup-info li.cme-change {display: list-item;}
+
+div.publishpress-caps-backup td.cme-backup-info .cme-plus {font-weight: bold; color: green}
+div.publishpress-caps-backup td.cme-backup-info .cme-minus {font-weight: bold; color: #a00; text-decoration: line-through;}

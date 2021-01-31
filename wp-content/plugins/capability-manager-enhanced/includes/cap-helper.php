@@ -26,14 +26,16 @@ class CME_Cap_Helper {
 		$this->force_distinct_taxonomy_caps();
 	}
 
-	function force_distinct_post_caps() {  // for selected post types (as stored in option array pp_enabled_post_types)
+	function force_distinct_post_caps() {  // for selected post types (as stored in option array presspermit_enabled_post_types)
 		global $wp_post_types, $wp_roles;
 		
 		$core_meta_caps = array_fill_keys( array( 'read_post', 'edit_post', 'delete_post' ), true );
 		
 		$append_caps = array( 'edit_published_posts' => 'edit_posts', 'edit_private_posts' => 'edit_posts', 'delete_posts' => 'edit_posts', 'delete_others_posts' => 'delete_posts', 'delete_published_posts' => 'delete_posts', 'delete_private_posts' => 'delete_posts', 'read' => 'read' );
 		
-		if ( get_option('pp_define_create_posts_cap') ) {
+		$pp_prefix = (defined('PPC_VERSION') && !defined('PRESSPERMIT_VERSION')) ? 'pp' : 'presspermit';
+
+		if ( get_option("{$pp_prefix}_define_create_posts_cap") ) {
 			foreach( array( 'post', 'page' ) as $post_type ) {
 				if ( $wp_post_types[$post_type]->cap->create_posts == $wp_post_types[$post_type]->cap->edit_posts ) {
 					$wp_post_types[$post_type]->cap->create_posts = "create_{$post_type}s";
@@ -197,7 +199,7 @@ class CME_Cap_Helper {
 		// need this for casting to other types even if "post" type is not enabled for PP filtering
 		$wp_post_types['post']->cap->set_posts_status = 'set_posts_status';
 		
-		if ( current_user_can( 'administrator' ) || current_user_can( 'pp_administer_content' ) ) {  // @ todo: support restricted administrator
+		if ((is_multisite() && is_super_admin()) || current_user_can('administrator') || current_user_can('pp_administer_content')) {  // @ todo: support restricted administrator
 			global $current_user;
 			$current_user->allcaps = array_merge( $current_user->allcaps, array_fill_keys( array_keys( $this->all_type_caps ), true ) );
 			
@@ -232,8 +234,9 @@ class CME_Cap_Helper {
 		
 		// count the number of taxonomies that use each capability
 		foreach( $wp_taxonomies as $taxonomy => $tx_obj ) {
-			$this_tx_caps = array_unique( (array) $tx_obj->cap );
-			
+			//$this_tx_caps = array_unique( (array) $tx_obj->cap );
+			$this_tx_caps = (array) $tx_obj->cap;
+
 			foreach( $this_tx_caps as $cap_name ) {
 				if ( ! isset( $this->all_taxonomy_caps[$cap_name] ) ) {
 					$this->all_taxonomy_caps[$cap_name] = 1;
@@ -292,10 +295,36 @@ class CME_Cap_Helper {
 					}
 				}
 				$tx_caps = (array) $wp_taxonomies[$taxonomy]->cap;
-				
+
+
 				// Optionally, also force edit_terms and delete_terms to be distinct from manage_terms, and force a distinct assign_terms capability
 				if ( in_array( $taxonomy, $detailed_taxonomies ) ) {
 					foreach( $tx_detail_caps as $cap_property => $replacement_cap_format ) {
+						$tx_cap_usage = array_count_values($tx_caps);
+
+						// If a unique edit/delete capability is already defined, don't change the definition
+						if (!empty($tx_caps[$cap_property]) 
+						&& (empty($this->all_taxonomy_caps[$tx_caps[$cap_property]]) || $this->all_taxonomy_caps[$tx_caps[$cap_property]] == 1) 
+						&& ($tx_cap_usage[$tx_caps[$cap_property]] == 1)
+						&& !defined('CAPSMAN_LEGACY_DETAILED_TAX_CAPS')
+						) {
+							// If roles were already configured with generated capability name, migrate to custom predefined capability name
+							$custom_detailed_taxonomy_caps = true;
+							$generated_cap_name = str_replace('_terms', "_{$plural_type}", $replacement_cap_format);
+
+							if (!get_option("cme_migrated_taxonomy_caps")) {
+								foreach ($wp_roles->roles as $role_name => $role) {
+									if (!empty($role['capabilities'][$generated_cap_name])) {
+										$_role = get_role($role_name);
+										$_role->add_cap($tx_caps[$cap_property]);
+										$_role->remove_cap($generated_cap_name);
+									}
+								}
+							}
+
+							continue;
+						}
+
 						if ( ! empty( $this->all_taxonomy_caps[ $tx_caps[$cap_property] ] ) ) {
 							// assign_terms is otherwise not forced taxonomy-distinct 
 							$wp_taxonomies[$taxonomy]->cap->$cap_property = str_replace( '_terms', "_{$plural_type}", $replacement_cap_format );
@@ -313,6 +342,10 @@ class CME_Cap_Helper {
 							}
 						}
 					}
+
+					if (!empty($custom_detailed_taxonomy_caps)) {
+						update_option("cme_migrated_taxonomy_caps", true);
+					}
 				}
 				
 				$tx_caps = (array) $wp_taxonomies[$taxonomy]->cap;
@@ -329,7 +362,7 @@ class CME_Cap_Helper {
 		
 		$this->all_taxonomy_caps = array_merge( $this->all_taxonomy_caps, array( 'assign_term' => true ) );
 		
-		if ( current_user_can( 'administrator' ) || current_user_can( 'pp_administer_content' ) ) {  // @ todo: support restricted administrator
+		if ((is_multisite() && is_super_admin()) || current_user_can('administrator') || current_user_can('pp_administer_content')) {  // @ todo: support restricted administrator
 			global $current_user;
 			$current_user->allcaps = array_merge( $current_user->allcaps, array_fill_keys( array_keys( $this->all_taxonomy_caps ), true ) );
 			

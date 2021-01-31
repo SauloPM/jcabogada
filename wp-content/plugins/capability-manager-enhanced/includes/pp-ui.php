@@ -30,17 +30,17 @@ class Capsman_PP_UI {
 	}
 	
 	function show_capability_hints( $default ) {					
-		if ( capsman_get_pp_option('display_hints') ) {
+		if ( pp_capabilities_get_permissions_option('display_hints') ) {
 			$cme_id = 'capsman';
 		
-			echo '<ul class="ul-disc" style="margin-top:10px">';
+			echo '<ul class="ul-disc publishpress-caps-extra-hints" style="margin-top:10px;display:none">';
 			
-			$pp_prefix = ( defined( 'PRESSPERMIT_VERSION') ) ? 'presspermit' : 'pp';
+			$pp_prefix = (defined('PPC_VERSION') && !defined('PRESSPERMIT_VERSION')) ? 'pp' : 'presspermit';
 
 			if ( defined( 'PPCE_VERSION' ) || ! defined( 'PRESSPERMIT_ACTIVE' ) || in_array( $default, array( 'subscriber', 'contributor', 'author', 'editor' ) ) ) {
 				echo '<li>';
 				if ( defined( 'PPCE_VERSION' ) || ! defined( 'PRESSPERMIT_ACTIVE' ) ) {
-					if ( capsman_get_pp_option( 'advanced_options' ) )
+					if ( pp_capabilities_get_permissions_option( 'advanced_options' ) )
 						$parenthetical = ' (' . sprintf( __( 'see %1$sRole Usage%2$s: "Pattern Roles"', 'capsman-enhanced' ), "<a href='" . admin_url("admin.php?page={$pp_prefix}-role-usage") . "'>", '</a>' ) . ')';
 					else
 						$parenthetical = ' (' . sprintf( __( 'activate %1$sAdvanced settings%2$s, see Role Usage', 'capsman-enhanced' ), "<a href='" . admin_url("admin.php?page={$pp_prefix}-settings&pp_tab=advanced") . "'>", '</a>' ). ')';
@@ -59,7 +59,7 @@ class Capsman_PP_UI {
 			if ( defined( 'PRESSPERMIT_ACTIVE' ) )
 				if ( defined( 'PPS_VERSION' ) )
 					$status_hint = sprintf( __( 'Capabilities for custom statuses can be manually added here. (See %sPermissions > Post Statuses%s for applicable names). %sSupplemental status-specific roles%s are usually more convenient, though.', $cme_id ), "<a href='" . admin_url("admin.php?page={$pp_prefix}-statuses&show_caps=1") . "'>", '</a>', "<a href='" . admin_url("admin.php?page={$pp_prefix}-groups") . "'>", '</a>' ) ;
-				elseif ( capsman_get_pp_option( 'display_extension_hints' ) )
+				elseif ( pp_capabilities_get_permissions_option( 'display_extension_hints' ) )
 					$status_hint = sprintf( __( 'Capabilities for custom statuses can be manually added here. Or activate the PP Custom Post Statuses extension to assign status-specific supplemental roles.', $cme_id ), "<a href='" . admin_url("admin.php?page={$pp_prefix}-role-usage") . "'>", '</a>' ) ;
 			
 			elseif ( defined( 'PP_VERSION' ) )
@@ -80,10 +80,10 @@ class Capsman_PP_UI {
 		<div style="float:right">
 			<?php
 			pp_refresh_options();
-			$pp_only = (array) capsman_get_pp_option( 'supplemental_role_defs' );
+			$pp_only = (array) pp_capabilities_get_permissions_option( 'supplemental_role_defs' );
 			$checked = ( in_array( $default, $pp_only ) ) ? 'checked="checked"': '';
 			?>
-			<label for="pp_only_role" title="<?php _e('Make role available for supplemental assignment to Permission Groups only', 'capsman-enhanced');?>"><input type="checkbox" name="pp_only_role" id="pp_only_role" value="1" <?php echo $checked;?>> <?php _e('hidden role', 'capsman-enhanced'); ?> </label>
+			<label for="pp_only_role" title="<?php _e('Make role available for supplemental assignment to Permission Groups only', 'capsman-enhanced');?>"><input type="checkbox" name="pp_only_role" id="pp_only_role" autocomplete="off" value="1" <?php echo $checked;?>> <?php _e('hidden role', 'capsman-enhanced'); ?> </label>
 		</div>
 		<?php endif; ?>
 	<?php
@@ -100,7 +100,7 @@ class Capsman_PP_UI {
 				$caption = __( 'Ensure permissions can be controlled separately from other post types.', 'capsman-enhanced' );
 				echo "<p class='cme-hint'>$caption</p>";
 				
-				if ( defined( 'PRESSPERMIT_ACTIVE' ) && capsman_get_pp_option( 'display_hints' ) ) :?>
+				if ( defined( 'PRESSPERMIT_ACTIVE' ) && pp_capabilities_get_permissions_option( 'display_hints' ) ) :?>
 				<div class="cme-subtext" style="margin-top:0">
 				<?php /*_e( '(PP Filtered Post Types, Taxonomies)', 'capsman-enhanced' ); */?>
 				</div>
@@ -108,13 +108,15 @@ class Capsman_PP_UI {
 				
 				echo "<table style='width:100%'><tr>";
 				
-				$unfiltered = apply_filters( 'pp_unfiltered_post_types', array('forum','topic','reply','wp_block') );			// bbPress' dynamic role def requires additional code to enforce stored caps
+				$unfiltered = apply_filters( 'pp_unfiltered_post_types', array('forum','topic','reply','wp_block', 'customize_changeset') );			// bbPress' dynamic role def requires additional code to enforce stored caps
 				$hidden = apply_filters( 'pp_hidden_post_types', array() );
 				
 				echo '<td style="width:50%">';
 				
 				$option_basename = 'enabled_post_types';
-				$enabled = get_option( 'pp_' . $option_basename, array( 'post' => true, 'page' => true ) );
+				$pp_prefix = (defined('PPC_VERSION') && !defined('PRESSPERMIT_VERSION')) ? 'pp' : 'presspermit';
+
+				$enabled = get_option( $pp_prefix . '_' . $option_basename, array( 'post' => true, 'page' => true ) );
 				
 				foreach( $defined_types as $key => $type_obj ) {
 					if ( ! $key )
@@ -134,7 +136,7 @@ class Capsman_PP_UI {
 						<div class="agp-vspaced_input">
 						<label for="<?php echo($id);?>" title="<?php echo($key);?>">
 						<input name="<?php echo("{$option_basename}-options[]");?>" type="hidden" value="<?php echo($key)?>" />
-						<input name="<?php echo($id);?>" type="checkbox" id="<?php echo($id);?>" value="1" <?php checked('1', ! empty($enabled[$key]) );?> /> <?php echo($type_obj->label);?>
+						<input name="<?php echo($id);?>" type="checkbox" id="<?php echo($id);?>" autocomplete="off" value="1" <?php checked('1', ! empty($enabled[$key]) );?> /> <?php echo($type_obj->label);?>
 						
 						<?php 
 						echo ('</label></div>');
@@ -148,11 +150,13 @@ class Capsman_PP_UI {
 				</tr>
 				</table>
 				
-				<?php $define_create_posts_cap = get_option( 'pp_define_create_posts_cap' );?>
+				<?php 
+				
+				$define_create_posts_cap = get_option("{$pp_prefix}_define_create_posts_cap");?>
 				
 					<div style="margin-top:10px;margin-bottom:10px">
 					<label for="pp_define_create_posts_cap">
-					<input name="pp_define_create_posts_cap" type="checkbox" id="pp_define_create_posts_cap" value="1" <?php checked('1', $define_create_posts_cap );?> title="<?php esc_attr( _e( 'Make selected post types require a different capability to add new posts.', 'capsman-enhanced') );?>" /> <?php _e('Use create_posts capability');?>
+					<input name="pp_define_create_posts_cap" type="checkbox" id="pp_define_create_posts_cap" autocomplete="off" value="1" <?php checked('1', $define_create_posts_cap );?> title="<?php esc_attr( _e( 'Make selected post types require a different capability to add new posts.', 'capsman-enhanced') );?>" /> <?php _e('Use create_posts capability');?>
 					</label>
 					</div>
 				
@@ -180,8 +184,10 @@ class Capsman_PP_UI {
 				
 				echo '<td style="width:50%">';
 
+				$pp_prefix = (defined('PPC_VERSION') && !defined('PRESSPERMIT_VERSION')) ? 'pp' : 'presspermit';
+
 				$option_basename = 'enabled_taxonomies';
-				$option_name = 'pp_' . $option_basename;
+				$option_name = $pp_prefix . '_' . $option_basename;
 				
 				$enabled = get_option( $option_name, array() );
 				
@@ -203,7 +209,7 @@ class Capsman_PP_UI {
 						<div class="agp-vspaced_input">
 						<label for="<?php echo($id);?>" title="<?php echo($taxonomy);?>">
 						<input name="<?php echo("{$option_basename}-options[]");?>" type="hidden" value="<?php echo($taxonomy)?>" />
-						<input name="<?php echo($id);?>" type="checkbox" id="<?php echo($id);?>" value="1" <?php checked('1', ! empty($enabled[$taxonomy]) );?> /> <?php echo($type_obj->label);?>
+						<input name="<?php echo($id);?>" type="checkbox" autocomplete="off" id="<?php echo($id);?>" value="1" <?php checked('1', ! empty($enabled[$taxonomy]) );?> /> <?php echo($type_obj->label);?>
 						
 						<?php 
 						echo ('</label></div>');
@@ -259,7 +265,7 @@ class Capsman_PP_UI {
 						<div class="agp-vspaced_input">
 						<label for="<?php echo($id);?>" title="<?php echo($taxonomy);?>">
 						<input name="<?php echo("{$option_basename}-options[]");?>" type="hidden" value="<?php echo($taxonomy)?>" />
-						<input name="<?php echo($id);?>" type="checkbox" id="<?php echo($id);?>" value="1" <?php checked('1', ! empty($enabled[$taxonomy]) );?> /> <?php echo($type_obj->label);?>
+						<input name="<?php echo($id);?>" type="checkbox" autocomplete="off" id="<?php echo($id);?>" value="1" <?php checked('1', ! empty($enabled[$taxonomy]) );?> /> <?php echo($type_obj->label);?>
 						
 						<?php 
 						echo ('</label></div>');

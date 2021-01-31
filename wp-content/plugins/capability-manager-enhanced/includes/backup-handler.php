@@ -5,7 +5,7 @@ class Capsman_BackupHandler
 	var $cm;
 
 	function __construct( $manager_obj ) {
-		if ( ! is_super_admin() && ! current_user_can( 'restore_roles' ) )
+		if ((!is_multisite() || !is_super_admin()) && !current_user_can('administrator') && !current_user_can('restore_roles'))
 			wp_die( __( 'You do not have permission to restore roles.', 'capsman-enhanced' ) );
 	
 		$this->cm = $manager_obj;
@@ -18,7 +18,7 @@ class Capsman_BackupHandler
 	 */
 	function processBackupTool ()
 	{
-		if ( isset($_POST['Perform']) ) {
+        if (isset($_POST['save_backup'])) {
 			check_admin_referer('capsman-backup-tool');
 		
 			global $wpdb;
@@ -26,27 +26,34 @@ class Capsman_BackupHandler
 			$cm_roles = $this->cm->ID . '_backup';
 			$cm_roles_initial = $this->cm->ID . '_backup_initial';
 
-			switch ( $_POST['action'] ) {
-				case 'backup':
-					if ( ! get_option( $cm_roles_initial ) ) {
-						if ( $current_backup = get_option( $cm_roles ) ) {
-							update_option( $cm_roles_initial, $current_backup, false );
+			if ( ! get_option( $cm_roles_initial ) ) {
+				if ( $current_backup = get_option( $cm_roles ) ) {
+					update_option( $cm_roles_initial, $current_backup, false );
 
-							if ( $initial_datestamp = get_option( $this->cm->ID . '_backup_datestamp' ) ) {
-								update_option($this->cm->ID . '_backup_initial_datestamp', $initial_datestamp, false );
-							}
-						}
+					if ( $initial_datestamp = get_option( $this->cm->ID . '_backup_datestamp' ) ) {
+						update_option($this->cm->ID . '_backup_initial_datestamp', $initial_datestamp, false );
 					}
+				}
+			}
 
-					$roles = get_option($wp_roles);
-					update_option($cm_roles, $roles, false);
-					update_option($this->cm->ID . '_backup_datestamp', current_time( 'timestamp' ), false );
-					ak_admin_notify(__('New backup saved.', 'capsman-enhanced'));
-					break;
+			$roles = get_option($wp_roles);
+			update_option($cm_roles, $roles, false);
+			update_option($this->cm->ID . '_backup_datestamp', current_time( 'timestamp' ), false );
+			ak_admin_notify(__('New backup saved.', 'capsman-enhanced'));
 				
+        }
+
+        if (isset($_POST['restore_backup'])) {
+            check_admin_referer('capsman-backup-tool');
+
+            global $wpdb;
+            $wp_roles = $wpdb->prefix . 'user_roles';
+            $cm_roles = $this->cm->ID . '_backup';
+            $cm_roles_initial = $this->cm->ID . '_backup_initial';
+
+            switch ($_POST['select_restore']) {
 				case 'restore_initial':
-					$roles = get_option($cm_roles_initial);
-					if ( $roles ) {
+					if ($roles = get_option($cm_roles_initial)) {
 						update_option($wp_roles, $roles);
 						ak_admin_notify(__('Roles and Capabilities restored from initial backup.', 'capsman-enhanced'));
 					} else {
@@ -55,14 +62,21 @@ class Capsman_BackupHandler
 					break;
 
 				case 'restore':
-					$roles = get_option($cm_roles);
-					if ( $roles ) {
+					if ($roles = get_option($cm_roles)) {
 						update_option($wp_roles, $roles);
 						ak_admin_notify(__('Roles and Capabilities restored from last backup.', 'capsman-enhanced'));
 					} else {
 						ak_admin_error(__('Restore failed. No backup found.', 'capsman-enhanced'));
 					}
 					break;
+
+				default:
+                    if ($roles = get_option($_POST['select_restore'])) {
+						update_option($wp_roles, $roles);
+						ak_admin_notify(__('Roles and Capabilities restored from selected auto-backup.', 'capsman-enhanced'));
+					} else {
+						ak_admin_error(__('Restore failed. No backup found.', 'capsman-enhanced'));
+					}
 			}
 		}
 	}

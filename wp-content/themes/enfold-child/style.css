@@ -92,15 +92,14 @@ h5 * {
     display: block;
   }
 }
+#header_main .header_bg {
+  opacity: 1;
+}
 #header_main .logo a {
   display: none;
 }
 #header_main .menu .menu-item-search-dropdown {
   display: none !important;
-}
-
-#header .header_bg {
-  opacity: 1;
 }
 
 @media only screen and (min-width: 768px) {
@@ -606,84 +605,103 @@ h5 * {
     margin-bottom: 0 !important;
   }
 }
+#contacto p {
+  margin: 0 !important;
+}
+#contacto p br:empty {
+  display: none;
+}
+#contacto .ajax-loader {
+  display: none;
+}
 #contacto .recuadro {
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 20px 25px;
 }
-#contacto .formulario {
-  margin: 0;
-}
-#contacto .formulario fieldset {
-  margin: 0;
-}
-#contacto .formulario .text_input,
-#contacto .formulario .text_area {
+#contacto .wpcf7-text,
+#contacto .wpcf7-textarea {
   color: #808080;
   font-family: "Lato", sans-serif;
   background: white !important;
-  border: none;
-  border-bottom: 1px solid #ebebeb;
+  border: none !important;
+  border-bottom: 1px solid #ebebeb !important;
   border-radius: 0 !important;
   box-shadow: none;
+  padding: 13px !important;
+  margin: 15px 0 0 !important;
   resize: none;
   transition: 0.5s;
 }
-#contacto .formulario .text_input:focus,
-#contacto .formulario .text_area:focus {
-  border: none;
-  border-bottom: 1px solid #D27D64;
-  border-radius: 0;
-  box-shadow: none;
+#contacto .wpcf7-text:focus,
+#contacto .wpcf7-textarea:focus {
+  border: none !important;
+  border-bottom: 1px solid #D27D64 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
-#contacto .formulario .text_input::placeholder,
-#contacto .formulario .text_area::placeholder {
+#contacto .wpcf7-text::placeholder,
+#contacto .wpcf7-textarea::placeholder {
   transition: 0.5s;
 }
-#contacto .formulario .text_input:focus::placeholder,
-#contacto .formulario .text_area:focus::placeholder {
+#contacto .wpcf7-text:focus::placeholder,
+#contacto .wpcf7-textarea:focus::placeholder {
   color: white;
 }
-#contacto .formulario .text_area {
+#contacto .wpcf7-textarea {
   margin-bottom: 25px;
   height: 150px;
 }
-#contacto .formulario .button {
+#contacto .wpcf7-submit {
   color: #D27D64;
   text-transform: uppercase;
   background: white;
   border: 1px solid #D27D64;
-  border-radius: 0;
+  border-radius: 0 !important;
   letter-spacing: 1px;
-  margin: 42px 0 0;
+  padding: 15px 20px !important;
+  margin: 50px 0 0;
   width: 100%;
   transition: 0.5s;
+  cursor: not-allowed;
 }
-#contacto .formulario .button:hover {
+#contacto .wpcf7-submit.checked {
+  cursor: pointer;
+}
+#contacto .wpcf7-submit.checked:hover {
   color: white;
   background: #D27D64;
 }
-#contacto .formulario .hidden + p > label {
-  display: none;
+#contacto .wpcf7-not-valid-tip {
+  font-size: 10px;
 }
-#contacto .formulario .value_verifier_label {
-  color: #808080;
-  font-size: 15px;
-  bottom: 12px;
+#contacto .wpcf7-response-output {
+  color: white;
+  font-size: 16px;
+  background: orange;
+  border: none;
+  line-height: 25px;
+  padding: 25px 35px 25px 110px;
+  position: fixed;
+  left: 25px;
+  bottom: 25px;
+  z-index: 50;
+  width: 100%;
+  max-width: 450px;
 }
-#contacto .formulario .captcha {
-  color: #808080 !important;
-  padding-left: 70px !important;
-}
-#contacto .formulario .valid .text_area,
-#contacto .formulario .valid .text_input {
-  border: none !important;
-  border-bottom: 1px solid #ebebeb !important;
-}
-#contacto .formulario .error .text_area,
-#contacto .formulario .error .text_input {
-  border: none !important;
-  border-bottom: 1px solid tomato !important;
+#contacto .wpcf7-response-output::before {
+  content: "!";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 900;
+  background: darkorange;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 75px;
 }
 #contacto .politica-privacidad {
   color: #808080;
@@ -718,7 +736,7 @@ h5 * {
 
 @media only screen and (min-width: 480px) {
   #contacto .recuadro {
-    padding: 50px;
+    padding: 35px 50px 50px;
   }
 
   #datos-contacto .content p {

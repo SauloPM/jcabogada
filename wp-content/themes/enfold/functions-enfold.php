@@ -290,7 +290,8 @@ if(!function_exists('avia_ajax_search'))
 	            $image = get_the_post_thumbnail( $post->ID, 'thumbnail' );
 
 	            $extra_class = $image ? "with_image" : "";
-	            $post_type   = $image ? "" : get_post_format($post->ID) != "" ? get_post_format($post->ID) : "standard";
+				// $post_type   = $image ? "" : get_post_format($post->ID) != "" ? get_post_format($post->ID) : "standard";
+				( $post_type   = $image ? "" : get_post_format($post->ID) != "" ) ? get_post_format($post->ID) : "standard";
 	            $iconfont    = $image ? "" : av_icon_string($post_type);
 	            $excerpt     = "";
 

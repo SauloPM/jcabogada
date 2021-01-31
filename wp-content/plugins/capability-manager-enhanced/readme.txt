@@ -1,77 +1,205 @@
-=== Capability Manager Enhanced===
+=== PublishPress Capabilities: Manage WordPress Permissions and Edit User Roles ===
+
 Contributors: publishpress, kevinB, stevejburge, andergmartins
-Tags: role, capabilities, post types, taxonomies, editor, network, multisite
-Requires at least: 4.1
-Tested up to: 5.2
-Stable tag: 1.7.5
+Author: PublishPress
+Author URI: https://publishpress.com
+Tags: user roles, capabilities, permissions, authors, editors, post types, taxonomies
+Requires at least: 4.9.7
+Tested up to: 5.5
+Requires PHP: 5.6.20
+Stable tag: 1.10.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-A simple way to manage WordPress roles and capabilities.
+PublishPress Capabilities is the best plugin to customize your permissions and user roles. You can control who has access to your WordPress site. 
 
 == Description ==
 
-Control permissions requirements for your post types, and assign those capabilities to any WordPress role.
+[PublishPress Capabilities](https://publishpress.com/capabilities/) gives you control over all the permissions on your WordPress site. You can customize all the user roles on your site, from Administrators and Editors to Authors, Contributors, Subscribers and custom roles. Each role can have the exact permissions that your site needs.
 
-= Features: =
+PublishPress Capabilities allows you to modify existing roles, but you can also create new roles. These roles can be added to single sites or to an entire multisite network.
 
-* Create Roles
-* Manage Role Capabilities
-* Cause type-specific Capabilities to be required and applied for any Post Type
-* Cause distinct edit, delete and assign Capabilities to be required and applied for any Taxonomy
-* Some specialized support for WooCommerce Post Types
-* Supports negation: set any Capability to granted, not granted, or blocked
-* Integration with Press Permit and PublishPress for comprehensive publishing solutions
-* Copy any Role to all network sites
-* Mark any Role for auto-copy to future network sites
-* Backup and restore Roles and Capabilities to revert your last changes.
-* Revert Roles and Capabilities to WordPress defaults.
+PublishPress Capabilities is safe to use. Every time you change your site's permissions, PublishPress Capabilities will take a backup that you can restore if anything goes wrong. You can use these backups to migrate your roles and permissions from one site to another.
 
-Capability Manager Enhanced is professionally developed and supported by the experienced <a href="https://publishpress.com">PublishPress</a> team.
+= Control User Permissions =
 
-It has been a reliable tool since 2012, when PublishPress team member Kevin Behrens forked it from Jordi Canals' abandoned Capability Manager plugin.
+PublishPress Capabilities gives you detailed control over all the permissions on your WordPress site. You can customize all the user roles on your site, from Administrator to Subscriber. 
 
-For additional versatility and convenience, enjoy <a href="https://wordpress.org/plugins/press-permit-core">Press Permit</a> plugin integration. Capability Manager Enhanced will show which capabilities have been added indirectly (as a pre-defined subset) by supplemental Type-Specific Roles (Page Contributor, Media Author, Product Editor, etc.)
+With Capabilities, you can choose who can Publish, Read, Edit and Delete content. You can choose permissions for posts, pages, custom content types, categories, tags, and more.
+[Click here for your quick start guide to PublishPress Capabilities](https://publishpress.com/knowledge-base/permissions-start/).
 
-Role management can also be delegated:
+= Capabilities for any Post Type =
 
-* Only Users with 'manage_capabilities' can manage them. This Capability is created at install time and assigned to Administrators.
-* Administrator Role cannot be deleted.
-* Non-administrators can only manager Roles or Users with same or lower capabilities.
+Many WordPress users have sites with custom post types. This can be done using custom code, a theme, or with a plugin. No matter how your post type is created, PublishPress Capabilities lets you enforce and assign distinct capabilities for your post type.
+[Click here to see how to control post type permissions](https://publishpress.com/knowledge-base/custom-post-types-capability/).
+
+= Permissions for Custom Statuses =
+
+This option will appear if you have the [PublishPress](https://publishpress.com/publishpress) plugin installed to create and configure custom statuses. With Capabilities Pro, you can decide which user roles are able to send posts to each status.  For status-specific editing control, also activate [PublishPress Permissions Pro](https://publishpress.com/presspermit) and its Status Control module. 
+[Click here to see how to manage permissions for statuses](https://publishpress.com/knowledge-base/permissions-for-custom-statuses/).
+
+= Capabilities for any Taxonomy =
+
+The PublishPress Capabilities plugin allows you to add extra permissions to the taxonomies on your site. This feature includes the default Categories and Tags, but also applies to other taxonomies. For example, in WooCommerce you can apply custom permissions to Product categories, Product tags, and Product shipping classes. You can enforce and assign "Manage", "Edit" and "Assign" distinct capabilities for all your taxonomies.
+[Click here to learn about taxonomy permissions](https://publishpress.com/knowledge-base/taxonomy-specific-capabilities/).
+
+= Backup and Restore Roles and Capabilities =
+
+PublishPress Capabilities offers you the ability to back up and restore your permissions. This feature is very helpful if you want to test out changes on your site, or if you've installed a new plugin that has changed your site's permissions.
+
+Every time you change your permissions, the PublishPress Capabilities plugin will now automatically create a backup. If you make a mistake, go to the "Backup" menu link and you'll be able to roll back to a previous version.
+[Click here to see how to backup permissions](https://publishpress.com/knowledge-base/backup-restore-permissions/).
+
+= Create or Copy User Roles = 
+
+With PublishPress Capabilities you can create or copy any existing WordPress user role. These roles can be customized in exactly the same way as the default WordPress roles. These new roles can be added to single sites or to an entire multisite network.
+[Click here to see how to create or copy user roles](https://publishpress.com/knowledge-base/create-or-copy-user-roles/).
+
+= Support for Media Library Permissions =
+
+PublishPress Capabilities enables you to decide who can upload, edit and delete files from your site's Media Library. By default, only Administrators are able to delete files in your Media Library. Subscribers and Contributors are not even allowed to upload files. You can customize these permissions for the Media Library and also the Featured Image box.
+[Click here to learn about Media Library permissions](https://publishpress.com/knowledge-base/control-media-library-access/).
+
+= Support for WooCommerce Permissions =
+
+We mentioned earlier that PublishPress Capabilities has special support for WooCommerce taxonomies. This is true for the rest of WooCommerce also. With PublishPress Capabilities you can control permissions for WooCommerce products, orders and coupons.
+[Click here to learn about WooCommerce permissions](https://publishpress.com/knowledge-base/woocommerce-permissons/).
+
+= WordPress Multisite support =
+
+PublishPress Capabilities allows you to control permissions on a single site or across your whole network. Every time you update permissions in PublishPress Capabilities, you can choose to sync those changes across your multisite network.
+[Click here to learn about multisite permissions](https://publishpress.com/knowledge-base/multisite-network/).
+
+= Join PublishPress and get the Pro plugins =
+
+The Pro versions of the PublishPress plugins are well worth your investment. The Pro versions have extra features and faster support. [Click here to join PublishPress](https://publishpress.com/pricing/).
+
+Join PublishPress and you'll get access to these 6 Pro plugins:
+
+* [PublishPress Authors Pro](https://publishpress.com/authors) allows you to add multiple authors and guest authors to WordPress posts.
+* [PublishPress Capabilities Pro](https://publishpress.com/capabilities) is the plugin to manage your WordPress user roles, permissions, and capabilities.
+* [PublishPress Checklists Pro](https://publishpress.com/checklists) enables you to define tasks that must be completed before content is published.
+* [PublishPress Permissions Pro](https://publishpress.com/permissions)  is the plugin for advanced WordPress permissions.
+* [PublishPress Pro](https://publishpress.com/publishpress) is the plugin for managing and scheduling WordPress content.
+* [PublishPress Revisions Pro](https://publishpress.com/revisions) allows you to update your published pages with teamwork and precision.
+
+Together, these plugins are a suite of powerful publishing tools for WordPress. If you need to create a professional workflow in WordPress, with moderation, revisions, permissions and more... then you should try PublishPress.
+
+=  Bug Reports =
+
+Bug reports for PublishPress Capabilities are welcomed in our [repository on GitHub](https://github.com/publishpress/publishpress-capabilities). Please note that GitHub is not a support forum, and that issues that aren't properly qualified as bugs will be closed.
+
+= Follow the PublishPress team = 
+
+Follow PublishPress on [Facebook](https://www.facebook.com/publishpress), [Twitter](https://www.twitter.com/publishpresscom) and [YouTube](https://www.youtube.com/publishpress).
 
 == Screenshots ==
 
-1. Users Menu
-2. View or modify Capabilities for any Role
-3. Network: copy Role to existing or future Sites
-4. Role operations
-5. Permissions Menu (Press Permit integration)
-6. Shading of Capabilities granted by supplemental Type-Specific Roles
-7. Enforce Type-Specific Capabilities (Press Permit no longer required)
-8. Backup / Restore tool
+1. Control user permissions
+2. Create and copy user roles
+3. Content permissions
+4. Permissions for Custom Statuses
+5. Enforce Type-Specific Capabilities
+6. Enforce Taxonomy-Specific Capabilities
+7. Detailed Taxonomy Capabilities
+8. Automatic or Manual Capabilities Backup, Restore
+9. Control WooCommerce Capabilities
+10. PublishPress Permission integration (showing capabilities from supplemental roles)
+11. Multisite support
 
-== Frequently Asked Questions ==
+== Upgrade Notice ==
 
-= How can I grant capabilities for a custom post type =
-
-The custom post type must be defined to impose type-specific capability requirements.  This is normally done by setting the "capability type" property equal to the post type name.
-
-= I have configured a role to edit a custom post type. Why do the users still see "You are not allowed the edit this post?" when they try to save/submit a new post? =
-
-You may need to adjust your custom post type definition by enabling the map_meta_cap property. If you are calling register_post_type manually, just add this property to the options array.
-
-= Even after I added capabilities, WordPress is not working the way I want =
-
-Keep in mind that this plugin's main purpose is to expose switches (defined capabilities). The wiring of those switches is up to the WordPress core or other plugins. If granting or removing a capability does not cause the expected results, your issue is probably with the other package.  With that context in mind, you are still welcome to <a href="https://publishpress.com/contact/">contact us</a> about it.
-
-= Where can I find more information about this plugin, usage and support ? =
-
-* Feel free to <a href="https://publishpress.com/contact/">submit a help ticket</a> if you can't find an answer in the documentation or forum here. 
+= 1.5.1 =
+Fixed : Non-administrators with user editing capabilities could add new Administrators
 
 == Changelog ==
 
+= 1.10.1 - 8 Oct 2020 =
+  * Fixed : Type-Specific Capabilities options included some non-public WordPress post types that don't support capability customization 
+  * Fixed : Review of role backup contents does not show name of current roles which would be removed by restoring backup
+
+= 1.10 - 1 Oct 2020 =
+  * Feature : Improved design and styling for Backup and Restore
+  * Feature : Backup > Restore - filter to display only modified capabilities
+  * Compat : Advanced Gutenberg - include AG Profile capabilities in Editing, Deletion, Reading capabilities grid
+  * Fixed : Media Create / upload_files capability could not be removed from role
+  * Fixed : Multisite - Incorrect menu display on sites where main site ID is not 1
+  * Fixed : Language file load failure if plugin directory structure is non-standard
+
+= 1.9.12 - 16 Jun 2020 =
+  * Fixed : Fatal error due to missing vendor library folder
+
+= 1.9.11 - 16 Jun 2020 =
+  * Fixed : Upgrade menu links were not displayed
+
+= 1.9.10 - 1 Jun 2020 =
+  * Fixed : PublishPress Permissions - Type / Taxonomy settings incorrectly synchronized under some conditions
+
+= 1.9.9 - 13 May 2020 =
+  * Compat : PublishPress Permissions - "Type-Specific Capabilities" setting was not properly synchronized with Permissions > Settings > Core > Filtered Post Types
+
+= 1.9.6 - 23 Apr 2020 =
+  * Change : Add New Role retains capitalization as entered for role title (otherwise applies proper case)
+  * Feature : Rename Role sidebar box on Capabilities screen
+  * Fixed : Fatal error on plugin load if Administrator role does not exist
+  * Compat : PublishPress Permissions - Post Type selections for "Type-Specific Capabilities" were not synchronized with PublishPress Permissions under some conditions
+
+= 1.9.5 - 6 Apr 2020 =
+  * Fixed : Fatal error loading Capabilities screen on a small percentage of installations
+  * Compat : PublishPress Permissions - Post Type selections for "Type-Specific Capabilities" were not synchronized with PublishPress Permissions under some conditions
+
+= 1.9.4 - 2 Apr 2020 =
+  * Fixed : Fatal error loading Capabilities screen on a small percentage of installations
+  * Fixed : Capabilities menu was displayed to non-Administrators with no items except "Upgrade to Pro"
+
+= 1.9.3 - 17 Mar 2020 =
+  * Fixed : Capabilities screen was not accessible to non-Administrators who have "manage_capabilities" capability
+  * Fixed : Some functions were not accessible to network Super Administrators without a role on the site
+  * Change : Clarify some messages for plugin access denial
+
+= 1.9.2 - 16 Mar 2020 =
+  * Feature : Auto-backup role and capabilities on each update (and on update to this version)
+  * Fixed : First-time installation: Capabilities menu item not displayed until after Plugins or Users menu clicked 
+  * Change : Third Party Plugin Capabilities - always display checkboxes even if capabilities not present in Administrator role
+  * Fixed : Plugin capability sections - pp_set_notification_channel and pp_manage_roles were included in both PublishPress and PublishPress Permissions sections
+  * Fixed : Capability Negation (Denial) bulk unselect link was ambiguous due to missing strikethrough
+
+= 1.9.1 - 16 Jan 2020 =
+  * Fixed : Create Role, Copy Role, and Add Capability sidebar functions did not work with ENTER keypress (caused screen reload without applying operation)
+
+= 1.9 - 9 Jan 2020 =
+  * Change : Renamed to PublishPress Capabilities
+  * Feature : Capabilities link on PublishPress > Roles row opens Role Capabilities screen
+  * Feature : Role Capabilities screen links to PublishPress > Roles for member management
+  * Fixed : Browser reload caused Role Capabilities screen to display default role 
+  * Fixed : Add Capability sidebar added custom capability to role immediately, but capability checkbox did not display as checked until reload
+  * Fixed : Category Assign or Delete capabilities were not effective due to WordPress core forcing default capability requirement
+  * Fixed : Term Assign or Delete capabilities were not effective due to WordPress core forcing default capability requirement
+  * Fixed : Multisite - On sub-sites, Role Capabilities screen did not display PublishPress Capabilities section to Super Administrators who don't have a role on the site
+  * Fixed : Role name captions on Role Capabilities and Backup Tool screens could not be translated
+  * Fixed : Checkbox bulk selection on Role Capabilities screen was incorrect under some conditions
+  * Change : Reinstate WordPress edit_published_posts workaround with correct status filtering behavior
+  * Change : Apply workaround filters for WordPress edit_published_posts / publish_posts handling only for users who have edit_published_posts capability for current post type
+
+= 1.8.1 - 25 Oct 2019 =
+  * Fixed : Automatic publication of blank auto-drafts, WooCommerce posts save with incorrect post status (since 1.8)
+
+= 1.8 - 24 Oct 2019 =
+  * Feature : WooCommerce, PublishPress, PressPermit capabilities grouped in sections on role editor screen
+  * Feature : Plugin API - plugins can hook into "cme_plugin_capabilities" filter to register their capabilities 
+  * Feature : Work around WordPress issue preventing users with edit_published_posts (but not publish_posts) capability from updating published posts (https://core.trac.wordpress.org/ticket/47443)
+  * Feature : Work around WordPress issue allowing users with edit_published_posts (but not publish_posts) to unpublish published posts
+  * Fixed : If a unique edit/delete capability is already defined, don't change the definition
+  * Fixed : Removed add_users from the Core WordPress Capabilities section because it is was replaced by promote_users
+  * Fixed : PHP Notices on Role Capabilities screen for undefined index, under some configurations 
+  * Fixed : HTML validation errors on Manage Capabilities screen
+  * Fixed : PHP 5.x : Notice for undefined constant PHP_INT_MIN on wp-admin Posts / Pages listing
+  * Change : Move Role Capabilities menu item to Permissions menu if PressPermit plugin is active (restoring previous behavior with Press Permit Core)
+  * Change : Edit Roles link in CME row of Plugins list
+  * Change : PublishPress icon, footer on Roles and Capabilities screen
+
 = 1.7.5 - 24 May 2019 =
-  * Fixed : Users' inclusion or non-inclusion in Authors dropdown was not updated based on role edit (non-zero level setting)
+  * Fixed : Users' inclusion or non-inclusion in Authors dropdown was not updated based on role edit
 
 = 1.7.4 - 1 May 2019 =
   * Fixed : On some sites, capabilities added dynamically by other code were forced into stored role definition (and could not be removed).
@@ -273,17 +401,3 @@ Keep in mind that this plugin's main purpose is to expose switches (defined capa
 
 = 1.0 =
   * First public version.
-
-== Upgrade Notice ==
-
-= 1.5.1 =
-Fixed : Non-administrators with user editing capabilities could add new Administrators
-
-= 1.3.2 = 
-Only Swedish translation.
-
-= 1.3.1 =
-Bug fixes.
-  
-= 1.3 =
-Improved security esiting users. You can now create real user managers. 

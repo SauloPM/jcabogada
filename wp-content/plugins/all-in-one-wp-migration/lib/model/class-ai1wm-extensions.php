@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2019 ServMask Inc.
+ * Copyright (C) 2014-2020 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -37,7 +37,7 @@ class Ai1wm_Extensions {
 	public static function get() {
 		$extensions = array();
 
-		// Add Microsoft Azure extension
+		// Add Microsoft Azure Extension
 		if ( defined( 'AI1WMZE_PLUGIN_NAME' ) ) {
 			$extensions[ AI1WMZE_PLUGIN_NAME ] = array(
 				'key'      => AI1WMZE_PLUGIN_KEY,
@@ -50,7 +50,7 @@ class Ai1wm_Extensions {
 			);
 		}
 
-		// Add Backblaze B2 extension
+		// Add Backblaze B2 Extension
 		if ( defined( 'AI1WMAE_PLUGIN_NAME' ) ) {
 			$extensions[ AI1WMAE_PLUGIN_NAME ] = array(
 				'key'      => AI1WMAE_PLUGIN_KEY,
@@ -60,6 +60,19 @@ class Ai1wm_Extensions {
 				'version'  => AI1WMAE_VERSION,
 				'requires' => '1.23',
 				'short'    => AI1WMAE_PLUGIN_SHORT,
+			);
+		}
+
+		// Add Backup Plugin
+		if ( defined( 'AI1WMVE_PLUGIN_NAME' ) ) {
+			$extensions[ AI1WMVE_PLUGIN_NAME ] = array(
+				'key'      => AI1WMVE_PLUGIN_KEY,
+				'title'    => AI1WMVE_PLUGIN_TITLE,
+				'about'    => AI1WMVE_PLUGIN_ABOUT,
+				'basename' => AI1WMVE_PLUGIN_BASENAME,
+				'version'  => AI1WMVE_VERSION,
+				'requires' => '1.0',
+				'short'    => AI1WMVE_PLUGIN_SHORT,
 			);
 		}
 
@@ -167,7 +180,7 @@ class Ai1wm_Extensions {
 			);
 		}
 
-		// Add Amazon Glacier extension
+		// Add Amazon Glacier Extension
 		if ( defined( 'AI1WMRE_PLUGIN_NAME' ) ) {
 			$extensions[ AI1WMRE_PLUGIN_NAME ] = array(
 				'key'      => AI1WMRE_PLUGIN_KEY,
@@ -201,7 +214,7 @@ class Ai1wm_Extensions {
 				'about'    => AI1WMME_PLUGIN_ABOUT,
 				'basename' => AI1WMME_PLUGIN_BASENAME,
 				'version'  => AI1WMME_VERSION,
-				'requires' => '3.76',
+				'requires' => '4.3',
 				'short'    => AI1WMME_PLUGIN_SHORT,
 			);
 		}
@@ -232,6 +245,19 @@ class Ai1wm_Extensions {
 			);
 		}
 
+		// Add Pro Plugin
+		if ( defined( 'AI1WMKE_PLUGIN_NAME' ) ) {
+			$extensions[ AI1WMKE_PLUGIN_NAME ] = array(
+				'key'      => AI1WMKE_PLUGIN_KEY,
+				'title'    => AI1WMKE_PLUGIN_TITLE,
+				'about'    => AI1WMKE_PLUGIN_ABOUT,
+				'basename' => AI1WMKE_PLUGIN_BASENAME,
+				'version'  => AI1WMKE_VERSION,
+				'requires' => '1.0',
+				'short'    => AI1WMKE_PLUGIN_SHORT,
+			);
+		}
+
 		// Add S3 Client Extension
 		if ( defined( 'AI1WMNE_PLUGIN_NAME' ) ) {
 			$extensions[ AI1WMNE_PLUGIN_NAME ] = array(
@@ -245,7 +271,7 @@ class Ai1wm_Extensions {
 			);
 		}
 
-		// Add Amazon S3 extension
+		// Add Amazon S3 Extension
 		if ( defined( 'AI1WMSE_PLUGIN_NAME' ) ) {
 			$extensions[ AI1WMSE_PLUGIN_NAME ] = array(
 				'key'      => AI1WMSE_PLUGIN_KEY,
@@ -284,7 +310,7 @@ class Ai1wm_Extensions {
 			);
 		}
 
-		// Add WebDAV extension
+		// Add WebDAV Extension
 		if ( defined( 'AI1WMWE_PLUGIN_NAME' ) ) {
 			$extensions[ AI1WMWE_PLUGIN_NAME ] = array(
 				'key'      => AI1WMWE_PLUGIN_KEY,

@@ -139,6 +139,10 @@ h5 * {
 
 #header_main {
 
+	.header_bg {
+		opacity: 1;
+	}
+
 	// Logo
 
 	.logo a {
@@ -150,10 +154,6 @@ h5 * {
 	.menu .menu-item-search-dropdown {
 		display: none !important;
 	}
-}
-
-#header .header_bg {
-	opacity: 1;
 }
 
 // Mobile First
@@ -852,6 +852,18 @@ h5 * {
 // ──────────────── //
 
 #contacto {
+
+	p {
+		margin: 0 !important;
+
+		br:empty {
+			display: none;
+		}
+	}
+
+	.ajax-loader {
+		display: none;
+	}
 	
 	.recuadro {
 		background: white;
@@ -859,100 +871,107 @@ h5 * {
 		padding: 20px 25px;
 	}
 
-	// Formulario
+	// Input y textarea
 
-	.formulario {
-		margin: 0;
+	.wpcf7-text,
+	.wpcf7-textarea {
+		color: $texto;
+		font-family: 'Lato', sans-serif;
+		background: white !important;
+		border: none !important;
+		border-bottom: 1px solid rgb(235,235,235) !important;
+		border-radius: 0 !important;
+		box-shadow: none;
+		padding: 13px !important;
+		margin: 15px 0 0 !important;
+		resize: none;
+		transition: .5s;
 
-		fieldset {
-			margin: 0;
-		}
-
-		// Campos
-
-		.text_input,
-		.text_area {
-			color: $texto;
-			font-family: 'Lato', sans-serif;
-			background: white !important;
-			border: none;
-			border-bottom: 1px solid rgb(235,235,235);
+		&:focus {
+			border: none !important;
+			border-bottom: 1px solid $primary !important;
 			border-radius: 0 !important;
-			box-shadow: none;
-			resize: none;
-			transition: .5s;
-
-			&:focus {
-				border: none;
-				border-bottom: 1px solid $primary;
-				border-radius: 0;
-				box-shadow: none;
-			}
-
-			// Placeholder
-
-			&::placeholder {
-				transition: .5s;
-			}
-			
-			&:focus::placeholder {
-				color: white;
-			}
+			box-shadow: none !important;
 		}
 
-		.text_area {
-			margin-bottom: 25px;
-			height: 150px;
-		}
+		// Placeholder
 
-		// Botón
-
-		.button {
-			color: $primary;
-			text-transform: uppercase;
-			background: white;
-			border: 1px solid $primary;
-			border-radius: 0;
-			letter-spacing: 1px;
-			margin: 42px 0 0;
-			width: 100%;
+		&::placeholder {
 			transition: .5s;
-			
+		}
+		
+		&:focus::placeholder {
+			color: white;
+		}
+	}
+
+	// Textarea
+
+	.wpcf7-textarea {
+		margin-bottom: 25px;
+		height: 150px;
+	}
+
+	// Botón
+
+	.wpcf7-submit {
+		color: $primary;
+		text-transform: uppercase;
+		background: white;
+		border: 1px solid $primary;
+		border-radius: 0 !important;
+		letter-spacing: 1px;
+		padding: 15px 20px !important;
+		margin: 50px 0 0;
+		width: 100%;
+		transition: .5s;
+		cursor: not-allowed;
+
+		&.checked {
+			cursor: pointer;
+
 			&:hover {
 				color: white;
 				background: $primary;
 			}
 		}
+	}
 
-		// Captcha
+	// Mensajes de error que aparecen debajo de cada input o textarea
 
-		.hidden + p > label {
-			display: none;
-		}
+	.wpcf7-not-valid-tip {
+		font-size: 10px;
+	}
 
-		.value_verifier_label {
-			color: $texto;
-			font-size: 15px;
-			bottom: 12px;
-		}
+	// Notificaciones
 
-		.captcha {
-			color: $texto !important;
-			padding-left: 70px !important;
-		}
+	.wpcf7-response-output {
+		color: white;
+		font-size: 16px;
+		background: orange;
+		border: none;
+		line-height: 25px;
+		padding: 25px 35px 25px 110px;
+		position: fixed;
+		left: 25px;
+		bottom: 25px;
+		z-index: 50;
+		width: 100%;
+		max-width: 450px;
 
-		// Validaciones
-
-		.valid .text_area,
-		.valid .text_input {
-			border: none !important;
-			border-bottom: 1px solid rgb(235,235,235) !important;
-		}
-		
-		.error .text_area,
-		.error .text_input {
-			border: none !important;
-			border-bottom: 1px solid tomato !important;
+		&::before {
+			content: '!';
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 25px;
+			font-weight: 900;
+			background: darkorange;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: 75px;
 		}
 	}
 
@@ -1002,7 +1021,7 @@ h5 * {
 @media only screen and (min-width: $mobile) {
 	
 	#contacto .recuadro {
-		padding: 50px;
+		padding: 35px 50px 50px;
 	}
 
 	#datos-contacto .content {

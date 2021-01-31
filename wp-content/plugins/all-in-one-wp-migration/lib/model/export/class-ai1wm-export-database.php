@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2019 ServMask Inc.
+ * Copyright (C) 2014-2020 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,6 +35,13 @@ class Ai1wm_Export_Database {
 		// Set exclude database
 		if ( isset( $params['options']['no_database'] ) ) {
 			return $params;
+		}
+
+		// Set query offset
+		if ( isset( $params['query_offset'] ) ) {
+			$query_offset = (int) $params['query_offset'];
+		} else {
+			$query_offset = 0;
 		}
 
 		// Set table index
@@ -128,6 +135,11 @@ class Ai1wm_Export_Database {
 			}
 		}
 
+		// Include table prefixes (Webba Booking)
+		foreach ( array( 'wbk_services', 'wbk_days_on_off', 'wbk_locked_time_slots', 'wbk_appointments', 'wbk_cancelled_appointments', 'wbk_email_templates', 'wbk_service_categories', 'wbk_gg_calendars', 'wbk_coupons' ) as $table_name ) {
+			$include_table_prefixes[] = $table_name;
+		}
+
 		// Set database options
 		$mysql->set_old_table_prefixes( $old_table_prefixes )
 			->set_new_table_prefixes( $new_table_prefixes )
@@ -144,10 +156,13 @@ class Ai1wm_Export_Database {
 			->set_table_prefix_columns( ai1wm_table_prefix() . 'usermeta', array( 'meta_key' ) );
 
 		// Export database
-		if ( $mysql->export( ai1wm_database_path( $params ), $table_index, $table_offset, $table_rows ) ) {
+		if ( $mysql->export( ai1wm_database_path( $params ), $query_offset, $table_index, $table_offset, $table_rows ) ) {
 
 			// Set progress
 			Ai1wm_Status::info( __( 'Done exporting database.', AI1WM_PLUGIN_NAME ) );
+
+			// Unset query offset
+			unset( $params['query_offset'] );
 
 			// Unset table index
 			unset( $params['table_index'] );
@@ -174,6 +189,9 @@ class Ai1wm_Export_Database {
 
 			// Set progress
 			Ai1wm_Status::info( sprintf( __( 'Exporting database...<br />%d%% complete<br />%s records saved', AI1WM_PLUGIN_NAME ), $progress, number_format_i18n( $table_rows ) ) );
+
+			// Set query offset
+			$params['query_offset'] = $query_offset;
 
 			// Set table index
 			$params['table_index'] = $table_index;

@@ -37,35 +37,32 @@ jQuery(document).ready(function($) {
 	});
 
 	// ──────────────── //
-	//     CONTACTO     //
-	// ──────────────── //
+    //     CONTACTO     //
+    // ──────────────── //
 
-	$("#contacto .button").click(function () {
-		if (!$("#contacto .lopd input").prop("checked"))
-			alert("Debe aceptar la Política de Privacidad");
-	});
+    // Aceptar la política de privacidad
+    $( document ).on( 'click', '#contacto .check', function() {
 
-	// Eliminación del asterisco del placeholder
-	var placeholder;
-	var inputs = jQuery("#contacto input:not([type='submit'])");
+        var checkbox = $( this );
+        var boton    = $( '#contacto .wpcf7-submit' );
 
-	jQuery.each(inputs, function () {
-		try {
-			placeholder = jQuery(this).attr("placeholder");
-			placeholder = placeholder.substring(0, placeholder.length - 1);
-			jQuery(this).attr("placeholder", placeholder);
-		}
-		catch(ex) {
-			// No hacemos nada
-		}
-	});
+        if ( checkbox.hasClass( 'checked' ) ) {
+            boton.removeClass( 'checked' );
+            checkbox.removeClass( 'checked' );
+        } else {
+            boton.addClass( 'checked' );
+            checkbox.addClass( 'checked' );
+        }
+    });
 
-	try {
-		placeholder = jQuery("#contacto textarea").attr("placeholder");
-		placeholder = placeholder.substring(0, placeholder.length - 1);
-		jQuery("#contacto textarea").attr("placeholder", placeholder);
-	}
-	catch(ex) {
-		// No hacemos nada
-	}
+    // Hacer clic en el botón sin haber aceptado la política de privacidad
+    $( document ).on( 'click', '#contacto .wpcf7-submit', function( event ) {
+
+        var boton    = $( this );
+        var checkbox = $( '#contacto .check' );
+
+        if ( !checkbox.hasClass( 'checked' ) ) {
+            event.preventDefault();
+        }
+    });
 });
